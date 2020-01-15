@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/work/work",
+    "pages/my/my"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "ColorUI",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tabbar/home.png",
+        "selectedIconPath": "/images/tabbar/select_home.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "职位",
+        "iconPath": "/images/tabbar/office.png",
+        "selectedIconPath": "/images/tabbar/office_select.png"
+      },
+      {
+        "pagePath": "pages/work/work",
+        "text": "工作",
+        "iconPath": "/images/tabbar/work.png",
+        "selectedIconPath": "/images/tabbar/work_select.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/tabbar/my.png",
+        "selectedIconPath": "/images/tabbar/my_select.png"
+      }
+    ]
+  }
+}
