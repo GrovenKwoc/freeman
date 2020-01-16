@@ -8,7 +8,7 @@
 }
 
 page {
-  background-image: var(--gradualBlue);
+  /* background-image: var(--gradualBlue); */
   width: 100vw;
   overflow: hidden;
 }
@@ -109,4 +109,17 @@ page {
 
 .DrawerPage .cu-bar.tabbar .action {
   flex: initial;
+}
+
+.index-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 1rem;
+}
+
+.index-card-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
