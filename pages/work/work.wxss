@@ -7,8 +7,9 @@
   padding-top: 50rpx;
 }
 
+
 page {
-  background-image: var(--gradualBlue);
+  /* background: #34cc99; */
   width: 100vw;
   overflow: hidden;
 }
@@ -109,4 +110,7 @@ page {
 
 .DrawerPage .cu-bar.tabbar .action {
   flex: initial;
+}
+.cu-bar {
+  background:#34cc99;
 }

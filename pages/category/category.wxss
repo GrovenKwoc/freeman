@@ -17,3 +17,16 @@ page {
   padding: 5rpx 0 20rpx;
   background: #ddd;
 }
+
+.index-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 1rem;
+}
+
+.index-card-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
