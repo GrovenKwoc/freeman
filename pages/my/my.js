@@ -8,7 +8,8 @@ Page({
     forksCount: 0,
     visitTotal: 0,
     starTime: 0,
-    clickCount: 0
+    clickCount: 0,
+    isLogin: false,
   },
   CopyLink(e) {
     wx.setClipboardData({
@@ -98,6 +99,24 @@ Page({
   toFor(){
     wx.showToast({
       title: '暂未开放',
+    })
+  },
+  login(){
+    wx.login({
+      success(res) {
+        if (res.code) {
+          console.log(res.code)
+          //发起网络请求
+          // wx.request({
+          //   url: 'https://test.com/onLogin',
+          //   data: {
+          //     code: res.code
+          //   }
+          // })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
     })
   }
 })
