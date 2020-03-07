@@ -1,3 +1,7 @@
+import {
+  My
+} from './my-model.js'
+var MyData = new My();
 Page({
 
   /**
@@ -22,7 +26,7 @@ Page({
       }
     })
   },
-  goPic(e){
+  goPic(e) {
     //单击6次跳转到图片页
     let count = this.data.clickCount
     if (count >= 6) {
@@ -31,7 +35,7 @@ Page({
       })
       return false
     }
-    count += 1 
+    count += 1
     this.setData({
       clickCount: count
     })
@@ -41,80 +45,112 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function(options) {
+      let value = wx.getStorageSync('isLogin')
+      this.setData({
+        'isLogin': value
+      })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-    
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-    
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function() {
+
   },
   /**
    * 进入我的收藏
    */
-  toFor(){
+  toFor() {
     wx.showToast({
       title: '暂未开放',
     })
   },
-  login(){
-    wx.login({
+  login() {
+  
+   
+  },
+  getInfo(){
+    var _this = this
+    // 查看是否授权
+    wx.getSetting({
       success(res) {
-        if (res.code) {
-          console.log(res.code)
-          //发起网络请求
-          // wx.request({
-          //   url: 'https://test.com/onLogin',
-          //   data: {
-          //     code: res.code
-          //   }
-          // })
-        } else {
-          console.log('登录失败！' + res.errMsg)
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+              var userInfo = res.userInfo
+              //获取用户信息成功后发送code码及用户信息到后端接口换取登录态token
+              wx.login({
+                success(res) {
+                  if (res.code) {
+                    //获取token
+                    let params = {
+                      'code': res.code,
+                      'userInfo': userInfo,
+                      'type': wx.getStorageSync('type') == '' ? 1 : wx.getStorageSync('type')
+                    }
+                    MyData.getToken(params, (res) => {
+                      let data = res.data
+                      // 存储登陆态 token
+                      if (data.code == 1) {
+                        wx.setStorageSync('token', data.data)
+                        // 设置一个全局登陆状态值
+                        wx.setStorageSync('isLogin', true)
+                        // 登陆成功后 刷新当前页面 Todo
+                        _this.onLoad()
+                      }
+                    })
+                  } else {
+                    console.log('登录失败！' + res.errMsg)
+                  }
+                }
+              })
+            }
+          })
         }
       }
     })

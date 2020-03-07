@@ -5,6 +5,6 @@ class Config{
   }
 }
 
-Config.restUrl = 'https://www.tophub.fun:8080'
+Config.restUrl = 'http://www.free.com/api'
 
 export {Config}

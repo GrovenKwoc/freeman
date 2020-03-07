@@ -21,8 +21,8 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.0",
-	"appid": "wx5c3ecf3311056b6c",
+	"libVersion": "2.10.2",
+	"appid": "wx6577b27128bad4c5",
 	"projectname": "freeman",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -69,9 +69,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/work/work",
-					"pathName": "pages/work/work",
+					"id": 2,
+					"name": "pages/my/my",
+					"pathName": "pages/my/my",
+					"query": "",
 					"scene": null
 				}
 			]

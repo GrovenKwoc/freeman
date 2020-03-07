@@ -12,7 +12,8 @@
       </view>
     </block>
     <block wx:if="{{isLogin==false}}">
-      <button catchtap="login">点击登陆</button>
+      <button open-type="getUserInfo" bindgetuserinfo="getInfo">授权登录</button>
+      <!-- <button catchtap="login">点击登陆</button> -->
     </block>
 
     <image src="https://raw.githubusercontent.com/weilanwl/ColorUI/master/demo/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
