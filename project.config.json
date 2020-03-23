@@ -74,6 +74,20 @@
 					"pathName": "pages/my/my",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/startup/start",
+					"pathName": "pages/startup/start",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/info/info",
+					"pathName": "pages/my/info/info",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

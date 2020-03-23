@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/category/category",
     "pages/work/work",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/my/info/info",
+    "pages/startup/start"
   ],
   "window": {
     "backgroundTextStyle": "light",

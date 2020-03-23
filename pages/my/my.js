@@ -15,6 +15,29 @@ Page({
     clickCount: 0,
     isLogin: false,
   },
+  // 检测是否登陆
+  checkLogin(){
+    let value = wx.getStorageSync('isLogin')
+    if(!value){
+      wx.showToast({
+        title: '请先登陆',
+        icon: 'none'
+      })
+      return false
+    }
+    return true
+  },
+  // 跳转到我的简历页面
+  myResume(){
+    if(this.checkLogin()){
+      wx.navigateTo({
+        url: '/pages/my/info/info'
+      })
+    }
+  },
+  /**
+   * 复制内容到剪切板 暂时未用到此方法
+   */
   CopyLink(e) {
     wx.setClipboardData({
       data: e.currentTarget.dataset.link,
@@ -121,7 +144,6 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.getUserInfo({
             success: function (res) {
-              console.log(res.userInfo)
               var userInfo = res.userInfo
               //获取用户信息成功后发送code码及用户信息到后端接口换取登录态token
               wx.login({

@@ -1,0 +1,5 @@
+<!--pages/startup/start.wxml-->
+<view class="button-box">
+  <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="job"> 我要求职 </button>
+  <button type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="hir"> 我要招人 </button>
+</view>
