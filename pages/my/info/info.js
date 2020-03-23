@@ -11,11 +11,11 @@ Page({
     jobDate: null,
     jobDatePicker: [],
     payType: null,
-    payTypePicker: ['月付', '季付', '半年付', '其它'],
+    payTypePicker: [],
     dutyTime: null,
-    dutyTimePicker: ['随时到岗','最近三天','一周之内','月内到岗'],
-    profession: ['专业一','专业二','专业三','专业四'],
-    operator: ['移动','联通','电信','铁通'],
+    dutyTimePicker: [],
+    profession: [],
+    operator: [],
     multiIndex: [0, 0, 0],
     date: '2020-3-20',
     region: ['河南省', '郑州市', '金水区'],
@@ -23,9 +23,9 @@ Page({
     modalName: null,
     textareaBValue: '',
     btnStatus: false,
-    formEdit: false
+    formEdit: true,
   },
-  onLoad () {
+  onLoad() {
     this.loadData()
   },
   loadData() {
@@ -67,7 +67,7 @@ Page({
       date: e.detail.value
     })
   },
-  RegionChange: function (e) {
+  RegionChange: function(e) {
     this.setData({
       region: e.detail.value
     })
@@ -132,21 +132,81 @@ Page({
       modalName: null
     })
   },
-  // 点击修改按钮
-  editBtn () {
+  ChooseProfession(e) {
+    let items = this.data.profession;
+    let values = e.currentTarget.dataset.value;
+    for (let i = 0, lenI = items.length; i < lenI; ++i) {
+      if (items[i].value == values) {
+        items[i].checked = !items[i].checked;
+        break
+      }
+    }
     this.setData({
-      btnStatus: true,
-      formEdit: true
+      profession: items,
     })
   },
-  cannelBtn () {
+  ChooseOperator(e) {
+    let items = this.data.operator;
+    let values = e.currentTarget.dataset.value;
+    for (let i = 0, lenI = items.length; i < lenI; ++i) {
+      if (items[i].value == values) {
+        items[i].checked = !items[i].checked;
+        break
+      }
+    }
     this.setData({
-      btnStatus: false,
+      operator: items,
+    })
+  },
+  // 点击修改按钮
+  editBtn() {
+    this.setData({
+      btnStatus: true,
       formEdit: false
     })
   },
+  cannelBtn() {
+    this.setData({
+      btnStatus: false,
+      formEdit: true
+    })
+  },
   // 表单提交
-  saveBtn () {
+  formSubmit(e) {
     // 获取表单值
+    // console.log(e.detail.value)
+    let fromData = e.detail.value
+    // 条件判断
+
+    // 提交数据
+    let data = {
+      'username': fromData.realname,
+      'idCard': fromData.idcard,
+      'years': fromData.jobDate,
+      'pro': fromData.profession,
+      'operator': fromData.operator,
+      'expected_location': fromData.location,
+      'pay_type': fromData.pay_type,
+      'desc': fromData.desc,
+      'duty_time': fromData.dutyTime
+    }
+
+    MyInfo.saveInfo(data, (res) => {
+      console.log(res.data)
+      if (res.data.code == 1) {
+        wx.showToast({
+          title: res.data.info,
+        })
+        this.setData({
+          btnStatus: false,
+          formEdit: true
+        })
+      } else {
+        wx.showToast({
+          title: res.data.info,
+          icon: 'none'
+        })
+      }
+    })
   }
 })

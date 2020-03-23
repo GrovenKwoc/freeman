@@ -14,6 +14,18 @@ class Info extends Base {
     }
     this.request(params);
   }
+
+  saveInfo(data, callBack) {
+    var params = {
+      'url': '/memberInfo/save',
+      'type': 'post',
+      'data': { data },
+      sCallBack: function (res) {
+        callBack && callBack(res);
+      }
+    }
+    this.request(params);
+  }
 }
 
 export { Info }

@@ -37,7 +37,7 @@
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <view class="content" bindtap="myResume" data-link="https://github.com/aen516954023/TOP500">
+      <view class="content" bindtap="myResume">
         <text class="cuIcon-github text-grey"></text>
         <text class="text-grey">我的简历</text>
       </view>

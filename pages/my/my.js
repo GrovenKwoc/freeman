@@ -27,7 +27,7 @@ Page({
     }
     return true
   },
-  // 跳转到我的简历页面
+  // 跳转到我的简历页面  此处需要添加获取用户手机号码权限
   myResume(){
     if(this.checkLogin()){
       wx.navigateTo({
