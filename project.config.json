@@ -67,6 +67,19 @@
 					"pathName": "pages/detail/detail",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/info/info",
+					"pathName": "pages/my/info/info",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/detail/detail",
+					"pathName": "pages/detail/detail",
+					"scene": null
 				}
 			]
 		}
