@@ -56,36 +56,15 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/detail/detail",
-					"pathName": "pages/detail/detail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "pages/category/category",
 					"pathName": "pages/category/category",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 2,
-					"name": "pages/my/my",
-					"pathName": "pages/my/my",
-					"query": "",
-					"scene": null
-				},
-				{
 					"id": -1,
-					"name": "pages/startup/start",
-					"pathName": "pages/startup/start",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/my/info/info",
-					"pathName": "pages/my/info/info",
+					"name": "pages/detail/detail",
+					"pathName": "pages/detail/detail",
 					"query": "",
 					"scene": null
 				}

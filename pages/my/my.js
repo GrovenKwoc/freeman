@@ -14,6 +14,7 @@ Page({
     starTime: 0,
     clickCount: 0,
     isLogin: false,
+    userType: 1
   },
   // 检测是否登陆
   checkLogin(){
@@ -69,10 +70,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+    // 如果登陆成功 则获取用户类型
+    let userType = wx.getStorageSync('userType')
+    if (userType) {
       let value = wx.getStorageSync('isLogin')
+
       this.setData({
+        'userType': userType,
         'isLogin': value
       })
+    } else {
+      // 未获取用户类型跳转到起始页
+      wx.reLaunch({
+        url: '/pages/startup/start'
+      })
+    }
   },
 
   /**
@@ -131,8 +144,11 @@ Page({
       title: '暂未开放',
     })
   },
-  login() {
-  
+  // 企业信息
+  companyDetail() {
+    wx.showToast({
+      title: '暂未开放',
+    })
    
   },
   getInfo(){

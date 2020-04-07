@@ -5,7 +5,9 @@
     "pages/work/work",
     "pages/my/my",
     "pages/my/info/info",
-    "pages/startup/start"
+    "pages/startup/start",
+    "pages/my/company/company",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

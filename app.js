@@ -1,6 +1,7 @@
 //app.js
 App({
   onLaunch: function() {
+    console.log('111')
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;
@@ -13,10 +14,20 @@ App({
         }
       }
     })
+
+    // 监测本地存储中是否存在用户类型，如果不存在 重定向到启动选择页面
+    let userType = wx.getStorageSync('userType')
+    console.log(userType)
+    if (!userType) {
+      wx.reLaunch({
+        url: '/pages/startup/start'
+      })
+    }
   },
   onLoad: function () {
     // 监测本地存储中是否存在用户类型，如果不存在 重定向到启动选择页面
     let userType = wx.getStorageSync('userType')
+    console.log(userType)
     if (!userType) {
       wx.reLaunch({
         url: '/pages/startup/start'

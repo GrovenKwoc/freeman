@@ -1,3 +1,7 @@
+import {
+  Category
+} from './category-model.js'
+var categoryModel = new Category();
 const app = getApp()
 var json = require('../../mock/json.js')
 Page({
@@ -5,90 +9,35 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
-    TabCur: 0,
-    MainCur: 0,
-    VerticalNavTop: 0,
-    list: [''],
-    listItems: [],
+    list: [],
     load: true,
-    modalName: false,
-    code: ''
+    page: 1
   },
   onLoad() {
     wx.showLoading({
       title: '加载中...',
       mask: true
     });
-    console.log(json)
-    let list = [{}];
-    for (let i = 0; i < 26; i++) {
-      list[i] = {};
-      list[i].name = String.fromCharCode(65 + i);
-      list[i].id = i;
-    }
-    this.setData({
-     // list: list,
-      list: json.data.type,
-      listItems: json.data.list,
-      listCur: list[0]
+    this.loadData()
+  },
+  loadData() {
+    let that = this
+    categoryModel.getList(that.data.page, (res)=>{
+      console.log(res.data.data.data)
+      that.setData({
+        list: res.data.data.data
+      })
     })
   },
   onReady() {
     wx.hideLoading()
   },
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      MainCur: e.currentTarget.dataset.id,
-      VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
-    })
-  },
-  VerticalMain(e) {
-    let that = this;
-    let list = this.data.list;
-    let tabHeight = 0;
-    if (this.data.load) {
-      for (let i = 0; i < list.length; i++) {
-        let view = wx.createSelectorQuery().select("#main-" + list[i].id);
-        view.fields({
-          size: true
-        }, data => {
-          list[i].top = tabHeight;
-          tabHeight = tabHeight + data.height;
-          console.log(data.height)
+  goDetail(e) {
+    let id = e.currentTarget.dataset.id
+    console.log(id)
 
-          list[i].bottom = tabHeight;
-        }).exec();
-      }
-      that.setData({
-        load: false,
-        list: list
-      })
-    }
-    let scrollTop = e.detail.scrollTop + 20;
-    for (let i = 0; i < list.length; i++) {
-      if (scrollTop > list[i].top && scrollTop < list[i].bottom) {
-        that.setData({
-          VerticalNavTop: (list[i].id - 1) * 50,
-          TabCur: list[i].id
-        })
-        return false
-      }
-    }
-  },
-  /**
-   * 点击弹出小程序详情
-   */
-  toModal(e){
-    let current = e.currentTarget.dataset.code
-    this.setData({
-      modalName: true,
-      code: current
-    })
-  },
-  hideModal(){
-    this.setData({
-      modalName: false
+    wx.redirectTo({
+      url: '/pages/detail/detail?id=1'
     })
   }
 })

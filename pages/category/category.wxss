@@ -1,8 +1,8 @@
 /* pages/categray/categray.wxss */
 page {
-  background: #34cc99;
-  width: 100vw;
-  overflow: hidden;
+  /* background: #34cc99; */
+  /* width: 100vw;
+  overflow: hidden; */
 }
 
 .select{

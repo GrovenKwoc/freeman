@@ -1,14 +1,10 @@
 <!--pages/categray/categray.wxml-->
-<view class='cu-custom'>
-  <view class="cu-bar fixed" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <navigator class='action text-white' open-type="navigateBack" delta="1" hover-class="none">
-      职位列表
-    </navigator>
-  </view>
-</view>
-
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">职位列表</view>
+</cu-custom>
 <!-- 搜索 -->
-  <view class="cu-bar search" style="margin-top: 120rpx; background:#34cc99;">
+  <view class="cu-bar search" style="background-image: var(--gradualBlue);color: var(--white);">
     <view class="search-form round">
       <text class="cuIcon-search"></text>
       <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
@@ -24,9 +20,9 @@
 <!-- 列表 -->
 <scroll-view scroll-y style="height: 950rpx;">
 <view class="cu-card article no-card">
-  <view class="cu-item shadow">
+  <view class="cu-item shadow" wx:for="{{list}}" wx:key="index">
     <view class="title">
-      <view class="text-cut">线路传输
+      <view class="text-cut">{{item.to_post.post_name}}
         <view class="cu-tag bg-green light sm round">已认证</view>
         <text class="fr text-red">￥15000</text>
       </view>
@@ -48,12 +44,12 @@
             <view class="cu-tag bg-yellow light sm round">已有
               <text>25</text>人申请</view>
           </view>
-          <button class="cu-btn round bg-blue">申请</button>
+          <button class="cu-btn round bg-blue" bindtap="goDetail" data-id="{{item.id}}">详情</button>
         </view>
       </view>
     </view>
   </view>
-  <view class="cu-item shadow">
+  <!-- <view class="cu-item shadow">
     <view class="title">
       <view class="text-cut">线路传输
         <view class="cu-tag bg-green light sm round">已认证</view>
@@ -196,6 +192,6 @@
         </view>
       </view>
     </view>
-  </view>
+  </view> -->
 </view>
 </scroll-view>
