@@ -124,8 +124,18 @@ Page({
   gotoView(e){
     console.log(e)
     let url = e.currentTarget.dataset.url
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/view/view?url=' + url,
+    })
+  },
+  selectBtn(e){
+    console.log(e.currentTarget.dataset.Index)
+    // 业务代码 Todo
+    // 请求首页列表接口 更新查询的列表记录
+  },
+  goLocaltion(){
+    wx.navigateTo({
+      url: '/pages/indexes/indexes'
     })
   }
 })

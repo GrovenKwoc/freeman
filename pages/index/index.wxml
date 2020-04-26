@@ -1,24 +1,22 @@
-
-
 <view class='cu-custom'>
-  <view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <navigator class='action' delta="1" hover-class="none">
+  <view class="cu-bar bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' delta="1" hover-class="none" url="/page/my/my">
       <text class='cuIcon-location'></text> 郑州
     </navigator>
     <view class='content' style='top:{{StatusBar}}px;'>首页</view>
   </view>
 </view>
 <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <swiper-item wx:for="{{4}}" wx:key="index">
-    <image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
+  <swiper-item wx:for="{{1}}" wx:key="index" bindtap="goLocaltion">
+    <image src="http://ctziyouren.cn/upload/index-baner.jpg" mode='aspectFill'></image>
   </swiper-item>
 </swiper>
 <view class="cu-list grid col-2">
-  <view class="cu-item">
+  <view class="cu-item" bindtap="selectBtn" data-index="1">
     <text class="cuIcon-hot lg text-red"></text>
     <text>热门职位</text>
   </view>
-  <view class="cu-item">
+  <view class="cu-item" bindtap="selectBtn" data-index="2">
     <text class="cuIcon-light lg text-Blue"></text>
     <text>急招职位</text>
   </view>
@@ -50,7 +48,6 @@
             <view class="cu-tag bg-yellow light sm round">已有
               <text>25</text>人申请</view>
           </view>
-          <button class="cu-btn round bg-blue">申请</button>
         </view>
       </view>
     </view>
@@ -79,7 +76,6 @@
             <view class="cu-tag bg-yellow light sm round">已有
               <text>25</text>人申请</view>
           </view>
-          <button class="cu-btn round bg-blue">申请</button>
         </view>
       </view>
     </view>
@@ -108,7 +104,6 @@
             <view class="cu-tag bg-yellow light sm round">已有
               <text>25</text>人申请</view>
           </view>
-          <button class="cu-btn round bg-blue">申请</button>
         </view>
       </view>
     </view>

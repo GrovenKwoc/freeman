@@ -5,6 +5,6 @@ class Config{
   }
 }
 
-Config.restUrl = 'http://www.free.com/api'
+Config.restUrl = 'http://www.ctziyouren.cn/api/'
 
 export {Config}

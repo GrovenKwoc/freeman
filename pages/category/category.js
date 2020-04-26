@@ -36,7 +36,7 @@ Page({
     let id = e.currentTarget.dataset.id
     console.log(id)
 
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/detail/detail?id=1'
     })
   }

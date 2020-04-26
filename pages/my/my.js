@@ -54,7 +54,7 @@ Page({
     //单击6次跳转到图片页
     let count = this.data.clickCount
     if (count >= 6) {
-      wx.redirectTo({
+      wx.navigateTo({
         url: '/pages/picture/picture'
       })
       return false
@@ -146,10 +146,12 @@ Page({
   },
   // 企业信息
   companyDetail() {
-    wx.showToast({
-      title: '暂未开放',
+    // wx.showToast({
+    //   title: '暂未开放',
+    // })
+    wx.navigateTo({
+      url: '/pages/my/company/company'
     })
-   
   },
   getInfo(){
     var _this = this

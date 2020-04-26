@@ -1,18 +1,18 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">公司信息</view>
+  <view slot="content">修改公司信息</view>
 </cu-custom>
 <form bindsubmit="formSubmit">
   <view class="cu-form-group">
-    <view class="title">真实姓名</view>
-    <input placeholder="请输入真实姓名" name="realname" value="{{info.realname}}" disabled="{{formEdit}}"></input>
+    <view class="title">公司名称</view>
+    <input placeholder="请输入公司名称" name="realname" value="{{info.realname}}" disabled="{{formEdit}}"></input>
   </view>
   <view class="cu-form-group align-start">
-    <view class="title">个人简介</view>
-    <textarea maxlength="-1" name="desc" disabled="{{formEdit}}" bindinput="textareaBInput" placeholder="写一段话介绍一下自己" value="{{info.desc}}"></textarea>
+    <view class="title">公司简介</view>
+    <textarea maxlength="-1" name="desc" disabled="{{formEdit}}" bindinput="textareaBInput" placeholder="写一段话介绍一下公司信息" value="{{info.desc}}"></textarea>
   </view>
   <view class="cu-form-group">
-    <view class="title">手机号码</view>
+    <view class="title">联系方式</view>
     <input placeholder="输入手机号码" name="mobile" type="number" value="{{info.mobile}}" disabled="{{formEdit}}"></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
@@ -22,18 +22,6 @@
         中国大陆
       </view>
     </view>
-  </view>
-  <view class="cu-form-group">
-    <view class="title">工作年限</view>
-    <picker bindchange="jobDatePickerChange" name="jobDate" value="{{jobDate}}" range="{{jobDatePicker}}">
-      <view class="picker">
-        {{jobDate?jobDatePicker[jobDate]:'请选择'}}
-      </view>
-    </picker>
-  </view>
-  <view class="cu-form-group">
-    <view class="title">选择专业</view>
-    <input placeholder="请选择专业" name="profession" bindtap="showModal" data-target="ChooseModalPro" value=""></input>
   </view>
   <view class="cu-modal bottom-modal {{modalName=='ChooseModalPro'?'show':''}}" bindtap="hideModal">
     <view class="cu-dialog" catchtap>
@@ -49,10 +37,7 @@
       </view>
     </view>
   </view>
-  <view class="cu-form-group">
-    <view class="title">运营商</view>
-    <input placeholder="可多选" name="operator" bindtap="showModal" data-target="ChooseModal" value=""></input>
-  </view>
+
  <view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
     <view class="cu-dialog" catchtap>
       <view class="cu-bar bg-white">
@@ -67,34 +52,14 @@
       </view>
     </view>
   </view>
+ 
   <view class="cu-form-group">
-    <view class="title">期望工作地点</view>
-    <input placeholder="输入期望工作地点" name="location"></input>
-    <text class="cuIcon-locationfill text-orange"></text>
-  </view>
-  <view class="cu-form-group">
-    <view class="title">可接受付款方式</view>
-    <picker bindchange="payTypePickerChange" name="payType" value="{{payType}}" range="{{payTypePicker}}">
-      <view class="picker">
-        {{payType?payTypePicker[payType]:'请选择'}}
-      </view>
-    </picker>
-  </view>
-  <view class="cu-form-group">
-    <view class="title">到岗时间</view>
-    <picker bindchange="dutyTimePickerChange" name="dutyTime" value="{{dutyTime}}" range="{{dutyTimePicker}}">
-      <view class="picker">
-        {{dutyTime?dutyTimePicker[dutyTime]:'请选择'}}
-      </view>
-    </picker>
-  </view>
-  <view class="cu-form-group">
-    <view class="title">身份证号码</view>
-    <input placeholder="请输入身份证号码" name="idcard" type="idcard" disabled="{{formEdit}}" value="{{info.idcard}}"></input>
+    <view class="title">营业执照编号</view>
+    <input placeholder="请输入营业执照编号" name="idcard" type="idcard" disabled="{{formEdit}}" value="{{info.idcard}}"></input>
   </view>
   <view class="cu-bar bg-white">
     <view class="action">
-      上传身份证照片
+      上传营业执照
     </view>
     <view class="action">
       {{imgList.length}}/2
