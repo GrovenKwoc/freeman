@@ -15,9 +15,9 @@ class Index extends Base {
     this.request(params);
   }
 
-  getDataList(typeId,callBack){
+  getDataList(callBack){
     var params = {
-      'url': '/GetAllInfoGzip?id=' + typeId,
+      'url': 'apply/list',
       sCallBack: function(res){
         callBack && callBack(res);
       }

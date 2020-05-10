@@ -11,20 +11,6 @@ Page({
     TabCur: 0,
     typeId: 150,
     scrollLeft: 0,
-    types: [
-      { id: "150", sort: "18768", title: "今日头条" },
-      { id: "83", sort: "14464", title: "百度热搜" },
-      { id: "58", sort: "36719", title: "微博" },
-      { id: "7", sort: "34401", title: "知乎日报" },
-      { id: "11", sort: "21131", title: "微信" },
-      { id: "10", sort: "18410", title: "网易" },
-      { id: "12", sort: "22935", title: "36Kr" },
-      { id: "57", sort: "26266", title: "豆瓣" },
-      { id: "1008", sort: "7225", title: "InfoQ最热" },
-      { id: "148", sort: "14181", title: "抖音" },
-      { id: "1027", sort: "1190", title: "金色财经" },
-      { id: "164", sort: "5453", title: "新京报" }
-    ],
     DataArr: [],
     scrollTop: 0,
     starTime: 0, //开始时间 点击事件
@@ -63,10 +49,11 @@ Page({
   _loadData:function(){
     let typeId = this.data.typeId
     home.getDataList(typeId,(res) => {
-      let data = res.data.Data
+      let data = res.data.data.list.data
       // for(let i=0; i<data.length;i++){
       //   console.log(data[i].Desc == ' ')
       // }
+      console.log(data)
       this.setData({
         DataArr: data
       })
@@ -136,6 +123,14 @@ Page({
   goLocaltion(){
     wx.navigateTo({
       url: '/pages/indexes/indexes'
+    })
+  },
+  goDetail(e) {
+    let id = e.currentTarget.dataset.id
+    console.log(id)
+
+    wx.navigateTo({
+      url: '/pages/detail/detail?id='+id
     })
   }
 })

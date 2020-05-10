@@ -173,6 +173,8 @@ Page({
                       'userInfo': userInfo,
                       'type': wx.getStorageSync('type') == '' ? 1 : wx.getStorageSync('type')
                     }
+                   // console.log(params)
+                    //return false
                     MyData.getToken(params, (res) => {
                       let data = res.data
                       // 存储登陆态 token

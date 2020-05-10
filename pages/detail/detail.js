@@ -17,7 +17,6 @@ Page({
       mask: true
     });
     let id = option.id
-    console.log(id)
     this.loadData(id)
   },
   onReady() {
@@ -25,8 +24,7 @@ Page({
   },
   loadData(id) {
     let that = this
-    detailModel.getInfo(that.data.id, (res) => {
-      console.log(res.data)
+    detailModel.getInfo(id, (res) => {
       that.setData({
         list: res.data.data.data
       })

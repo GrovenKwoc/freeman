@@ -32,12 +32,6 @@
         "selectedIconPath": "/images/tabbar/select_home.png"
       },
       {
-        "pagePath": "pages/category/category",
-        "text": "职位",
-        "iconPath": "/images/tabbar/office.png",
-        "selectedIconPath": "/images/tabbar/office_select.png"
-      },
-      {
         "pagePath": "pages/work/work",
         "text": "工作",
         "iconPath": "/images/tabbar/work.png",

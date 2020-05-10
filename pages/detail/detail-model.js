@@ -7,7 +7,7 @@ class Detail extends Base {
 
   getInfo(id, callBack) {
     var params = {
-      'url': '/post/detail/?id='+ id,
+      'url': '/index/detail?id='+ id,
       sCallBack: function (res) {
         callBack && callBack(res);
       }

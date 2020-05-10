@@ -39,7 +39,6 @@ Page({
     this._loadData()
   },
   myevent(e){
-    console.log(e.detail.viewModal)
     this.setData({
       viewModal: e.detail.viewModal
     })

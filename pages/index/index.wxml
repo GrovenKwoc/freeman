@@ -24,80 +24,24 @@
 
 <scroll-view scroll-y style="height: 700rpx;">
 <view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
+  <view class="cu-item shadow" wx:for="{{DataArr}}" bindtap="goDetail" data-id="{{item.id}}">
     <view class="title">
-      <view class="text-cut">线路传输
+      <view class="text-cut">{{item.job_name}}
         <view class="cu-tag bg-green light sm round">已认证</view>
-        <text class="fr text-red">￥15000</text>
+        <text class="fr text-red">{{item.min_price}}-{{item.max_price}}</text>
       </view>
     </view>
     <view class="content">
       <view class="desc">
         <view class="index-content text-gray">
-          <text>中国联通</text>
+          <text>{{item.operator}}</text>
           <text>到岗时间:5月20日</text>
           <text>工期：3个月</text>
         </view>
         <view class="index-card-bottom">
           <view>
             <view class="cu-tag bg-red light sm round">
-              <text class='cuIcon-location'></text> 郑州
-            </view>
-            <view class="cu-tag bg-green light sm round">需要
-              <text>13</text>人</view>
-            <view class="cu-tag bg-yellow light sm round">已有
-              <text>25</text>人申请</view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">线路传输
-        <view class="cu-tag bg-green light sm round">已认证</view>
-        <text class="fr text-red">￥15000</text>
-      </view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="index-content text-gray">
-          <text>中国联通</text>
-          <text>到岗时间:5月20日</text>
-          <text>工期：3个月</text>
-        </view>
-        <view class="index-card-bottom">
-          <view>
-            <view class="cu-tag bg-red light sm round">
-              <text class='cuIcon-location'></text> 郑州
-            </view>
-            <view class="cu-tag bg-green light sm round">需要
-              <text>13</text>人</view>
-            <view class="cu-tag bg-yellow light sm round">已有
-              <text>25</text>人申请</view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">线路传输
-        <view class="cu-tag bg-green light sm round">已认证</view>
-        <text class="fr text-red">￥15000</text>
-      </view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="index-content text-gray">
-          <text>中国联通</text>
-          <text>到岗时间:5月20日</text>
-          <text>工期：3个月</text>
-        </view>
-        <view class="index-card-bottom">
-          <view>
-            <view class="cu-tag bg-red light sm round">
-              <text class='cuIcon-location'></text> 郑州
+              <text class='cuIcon-location'></text> {{item.city}}
             </view>
             <view class="cu-tag bg-green light sm round">需要
               <text>13</text>人</view>
