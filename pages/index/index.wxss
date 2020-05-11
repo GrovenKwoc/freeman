@@ -2,15 +2,17 @@
   width: 200rpx;
   height: 200rpx;
 }
+
 .screen-swipe {
   min-height: 0;
 }
+
 .cu-card.dynamic>.cu-item {
   padding-top: 50rpx;
 }
 
 page {
-  /* background-image: var(--gradualBlue); */
+  background-color: #ddd;
   width: 100vw;
   overflow: hidden;
 }
@@ -120,8 +122,69 @@ page {
   padding: 0 0 1rem;
 }
 
-.index-card-bottom{
+.index-card-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.banner-box{
+  background-color: #fff;
+  padding: 30rpx;
+}
+.screen-swiper {
+  min-height: 200rpx;
+}
+.screen-swiper image{
+  border-radius: 20rpx;
+}
+
+.index-icon {
+  height: 200rpx;
+  background: #fff;
+  padding-bottom: 50rpx;
+}
+.index-icon image {
+  height: 150rpx;
+  width: 100%;
+}
+
+.list-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15rpx 30rpx 15rpx;
+  margin: 10rpx 0 0;
+  background: #fff;
+}
+
+.list-title text {
+  font-weight: bold;
+}
+
+.list-title text:last-child {
+  color: rgb(252, 154, 78);
+}
+
+.cu-card.article>.cu-item {
+  margin: 10rpx 0 10rpx;
+}
+
+.cu-bar .search-form {
+  margin: 0 60rpx;
+  background-color: rgb(235, 235, 235);
+}
+.cu-bar .search-form {
+  justify-content: center;
+}
+.cu-bar .search-form input {
+  flex : none;
+}
+.index-card-bottom {
+  justify-content: flex-start;
+}
+.index-card-bottom  .icb-content {
+  padding-left: 20rpx;
+}
+.ic-box text{
+  margin-right: 20rpx;
 }
