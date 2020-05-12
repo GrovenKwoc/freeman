@@ -3,20 +3,25 @@
   /* background-image: url(https://image.weilanwl.com/color2.0/index.jpg);
   background-size: cover; */
   height: 550rpx;
-  display: flex;
-  justify-content: center;
-  padding-top: 40rpx;
-  overflow: hidden;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
   color: #fff;
   font-weight: 300;
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  padding-top: 100rpx;
+  position: relative;
+}
+
+.UCenter-bg .my-top {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
 }
 
 .UCenter-bg text {
   opacity: 0.8;
+}
+
+.UCenter-bg .my-top .text-xl{
+  font-weight: blod;
 }
 
 .UCenter-bg image {
@@ -52,4 +57,16 @@ map,.mapBox{
 
 .text-xl {
   margin-top: 30rpx;
+}
+
+.money-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30rpx 10rpx;
+}
+
+.money-list view text{
+  display: block;
+  text-align: center;
 }

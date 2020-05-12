@@ -15,7 +15,8 @@ Page({
     scrollTop: 0,
     starTime: 0, //开始时间 点击事件
     isLoad: false,
-    viewModal: false
+    viewModal: false,
+    switerList: 1
   },
   tabSelect(e) {
     this.setData({
@@ -24,16 +25,6 @@ Page({
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
     this._loadData();
-  },
-  //滑动切换同步导航菜单
-  swiperTab(e){
-    // this.setData({
-    //   TabCur: e.detail.current,
-    //   titleInfo: this.data.types[e.detail.current],
-    //   scrollLeft: (e.detail.current - 1) * 60,
-    //   DataArr: []
-    // })
-    // this._loadData();
   },
   //初始化加载一次
   onLoad: function () {
@@ -49,7 +40,8 @@ Page({
   _loadData:function(){
     let typeId = this.data.typeId
     home.getDataList(typeId,(res) => {
-      let data = res.data.data.list.data
+      console.log(res.data.data)
+      let data = res.data.data
       // for(let i=0; i<data.length;i++){
       //   console.log(data[i].Desc == ' ')
       // }

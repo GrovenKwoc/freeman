@@ -1,1 +1,108 @@
 /* pages/detail/detail.wxss */
+.detail {
+  background: #f1f1f1;
+  margin-bottom: 120rpx;
+}
+
+.d-header{
+  background: #fff;
+  margin: 20rpx 0;
+  padding: 50rpx 30rpx;
+}
+
+.d-h-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.d-h-top .d-title {
+  margin-bottom: 10rpx;
+  font-size: 40rpx;
+  font-weight: blod;
+}
+
+.text-prices {
+  margin-top: 15rpx;
+  font-size: 35rpx;
+  color:#FB8D32;
+}
+
+.d-h-bottom {
+  display: flex;
+  align-items: center;
+  padding: 35rpx 0;
+}
+
+.d-h-bottom .cu-avatar{
+  margin-right: 20rpx;
+}
+
+.company-username {
+  font-size: 35rpx;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+
+.company-username text {
+  font-size: 25rpx;
+  font-weight: normal;
+}
+
+/* 内容 */
+
+.d-content {
+  margin: 20rpx 0;
+  background: #fff;
+  padding: 20rpx;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+}
+
+.d-c-title {
+  font-weight: bold;
+  font-size: 35rpx;
+  margin-bottom: 15rpx;
+}
+/* 为您推荐 */
+.recommend {
+  background: #fff;
+  padding: 20rpx;
+}
+
+.recommend .r-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  padding: 15rpx;
+}
+
+.recommend .cu-item {
+  display: flex;
+  align-items: center;
+  padding: 15rpx;
+}
+
+.r-right-content {
+  flex: 1;
+  padding-left: 25rpx;
+}
+
+.cu-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.cu-bar .collect {
+  color: #12AE85;
+}
+
+.submit {
+  background: #12AE85;
+  color: #fff;
+}
