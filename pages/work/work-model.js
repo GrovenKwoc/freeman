@@ -15,9 +15,11 @@ class Index extends Base {
     this.request(params);
   }
 
-  getDataList(callBack){
+  getDataList(data,callBack){
     var params = {
       'url': 'apply/list',
+      'type': 'post',
+      'data': {data},
       sCallBack: function(res){
         callBack && callBack(res);
       }

@@ -1,0 +1,47 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">投递记录</view>
+</cu-custom>
+<view class="cu-card article">
+  <view class="cu-item shadow" bindtap="goDetail" data-id="{{vo.id}}">
+    <view class="title">
+      <view class="text-cut">{{vo.job_name}}
+        <text class="fr text-red">{{vo.min_price}}-{{vo.max_price}}</text>
+      </view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="index-content text-gray">
+          <view class="ic-box">
+            <text>{{vo.operator}}</text>
+            <text>大专及以上</text>
+            <text>{{vo.working_years}}</text>
+          </view>
+          <text>{{vo.last_time}}</text>
+        </view>
+        <view class="index-card-bottom">
+          <view class="cu-avatar lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+          <view class="icb-content">
+            <view class="text-blank">{{vo.company_name}}</view>
+            <view class="text-gray text-sm flex">
+              <text class="text-cut">
+							   天使轮 | 15 - 50 人 | 移动互联网
+								</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="curr_stauts">
+  <text>当前状态:</text>
+  <text>【{{vo.status_str}}】</text>
+</view>
+<block wx:if="{{vo.status==3}}">
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue lg" role="button" aria-disabled="false">确认</button>
+    <button class="cu-btn bg-red margin-tb-sm lg" role="button" aria-disabled="false">取消</button>
+  </view>
+</block>

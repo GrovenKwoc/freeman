@@ -8,8 +8,8 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
-    list: [],
-    load: true,
+    vo: [],
+    load: true
   },
   onLoad(option) {
     wx.showLoading({
@@ -25,9 +25,42 @@ Page({
   loadData(id) {
     let that = this
     detailModel.getInfo(id, (res) => {
+      console.log(res.data.data)
       that.setData({
-        list: res.data.data.data
+        vo: res.data.data
       })
+    })
+  },
+  sendBtn(){
+    let that = this
+    let params = {
+      'cid': that.data.vo.companys.id,
+      'job_id': that.data.vo.id
+    }
+    detailModel.sendDelivery(params, (res) => {
+      let d = res.data 
+      if(d.code == 1){
+        wx.showToast({
+          title: d.info,
+        })
+      }else if(d.error_code == 20003){
+        wx.showModal({
+          content: d.msg,
+          showCancel: false,
+          success(res) {
+            if (res.confirm) {
+              wx.switchTab({
+                url: '/pages/my/my'
+              })
+            }
+          }
+        })
+      } else {
+        wx.showToast({
+          title: d.info,
+          icon: 'none'
+        })
+      }
     })
   }
 })

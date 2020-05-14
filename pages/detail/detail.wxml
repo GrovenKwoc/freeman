@@ -7,9 +7,9 @@
   <view class="d-header">
     <view class="d-h-top">
       <view>
-        <view class="d-title">线路设计专员</view>
-        <view>郑州 | 1-3年 | 联通 | 线路</view>
-        <view class="text-prices">10k - 12k</view>
+        <view class="d-title">{{vo.job_name}}</view>
+        <view>{{vo.city}} | {{vo.working_years}} | {{vo.operator}} | {{vo.pro}}</view>
+        <view class="text-prices">{{vo.min_price}} - {{vo.max_price}}</view>
       </view>
       <view>
         <view class="cu-avatar lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
@@ -22,8 +22,8 @@
           <text>今天来过</text>
         </view>
         <view>
-          <text class="cu-tag">某某企业管理公司</text>
-          <text class="cu-tag">月结</text>
+          <text class="cu-tag">{{vo.companys.name}}</text>
+          <text class="cu-tag">{{vo.pay_type}}</text>
         </view>
       </view>
     </view>
@@ -35,24 +35,11 @@
     </view>
     <view class="items">
       <text class="d-c-title">职位描述</text>
-      <text>职位职责:
-1、负责基于场景的用户增长;
-2、跟进项目，确保最终实现与需求- -致;
-3、分析产品数据，并根据数据对产品进行迭代;
-4、与相关部门配合，实现业务增长。
-
-职位要求:
-1、有2年以上用户端产品相关经验;
-2、对数据敏感，相信数据驱动业务;
-3、优秀的洞察力和同理心，善于设身处地地理解各类
-人的处境，通过用户访谈、场景分析等手段发现潜在
-用户需求;
-4、有非常强的逻辑分析能力，思维敏捷，有非常好的
-沟通能力。</text>
+      <text>{{vo.desc}}</text>
     </view>
     <view class="items">
       <text class="d-c-title">到岗时间</text>
-      <text>2020-5-15</text>
+      <text>{{vo.post_date}}</text>
     </view>
   </view>
   <view class="recommend">
@@ -126,5 +113,5 @@
     <view class="action collect">
       <view class="cuIcon-favorfill"></view> 已收藏
     </view>
-    <view class="submit">立即投递</view>
+    <view class="submit" bindtap="sendBtn">立即投递</view>
   </view>

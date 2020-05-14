@@ -4,15 +4,13 @@
   background-size: cover; */
   height: 550rpx;
   color: #fff;
-  font-weight: 300;
-  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-  padding-top: 100rpx;
+  padding: 180rpx 40rpx 0;
   position: relative;
 }
 
 .UCenter-bg .my-top {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-content: center;
 }
 
@@ -22,6 +20,7 @@
 
 .UCenter-bg .my-top .text-xl{
   font-weight: blod;
+  font-size: 50rpx;
 }
 
 .UCenter-bg image {
@@ -55,18 +54,28 @@ map,.mapBox{
   width: 150rpx;
 }
 
-.text-xl {
-  margin-top: 30rpx;
-}
-
 .money-list {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 30rpx 10rpx;
+  padding: 60rpx 0 30rpx;
+  border-bottom: 1px solid #ddd;
 }
 
+.money-list view {
+  border-right: 1px solid #ddd;
+  padding-right: 70rpx;
+}
+.money-list view:last-child{
+  padding: 0;
+  border-right: 0;
+}
 .money-list view text{
   display: block;
   text-align: center;
+  font-size: 30rpx;
+}
+
+.text-xxl {
+  font-size: 50rpx;
 }

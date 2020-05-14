@@ -23,6 +23,7 @@ Page({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
+    this._loadData(e.currentTarget.dataset.id)
   },
   //滑动切换同步导航菜单
   swiperTab(e){
@@ -36,7 +37,7 @@ Page({
   },
   //初始化加载一次
   onLoad: function () {
-    this._loadData()
+    this._loadData(0)
   },
   myevent(e){
     this.setData({
@@ -44,22 +45,13 @@ Page({
     })
   },
    //加载数据
-  _loadData:function(){
-    let typeId = this.data.typeId
-    home.getDataList(typeId,(res) => {
-      let data = res.data.Data
-      // for(let i=0; i<data.length;i++){
-      //   console.log(data[i].Desc == ' ')
-      // }
+  _loadData:function(type){
+    let params = {status:type}
+    home.getDataList(params,(res) => {
+      let data = res.data.data
       this.setData({
-        DataArr: data
-      })
-    })
-  },
-  _loadTypeData(){
-    home.getDataTypeList((res) => {
-      this.setData({
-        moreTypes: res.data.Data
+        DataArr: data,
+        isLoad:true
       })
     })
   },
@@ -105,11 +97,10 @@ Page({
       viewModal: false
     })
   },
-  gotoView(e){
-    console.log(e)
-    let url = e.currentTarget.dataset.url
+  goDetail(e){
+    let id = e.currentTarget.dataset.id
     wx.redirectTo({
-      url: '/pages/view/view?url=' + url,
+      url: '/pages/work/record/record?id=' + id,
     })
   }
 })

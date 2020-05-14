@@ -1,13 +1,13 @@
-import { Base } from '../../utils/base.js'
+import { Base } from '../../../utils/base.js'
 
-class Detail extends Base {
+class Record extends Base {
   constructor() {
     super()
   }
 
   getInfo(id, callBack) {
     var params = {
-      'url': '/index/detail/'+id,
+      'url': '/apply/info/' + id,
       sCallBack: function (res) {
         callBack && callBack(res);
       }
@@ -28,4 +28,4 @@ class Detail extends Base {
   }
 }
 
-export { Detail }
+export { Record }

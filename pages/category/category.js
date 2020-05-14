@@ -23,9 +23,9 @@ Page({
   loadData() {
     let that = this
     categoryModel.getList(that.data.page, (res)=>{
-      console.log(res.data.data.data)
+      console.log(res.data.data)
       that.setData({
-        list: res.data.data.data
+        list: res.data.data
       })
     })
   },

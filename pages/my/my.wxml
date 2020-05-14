@@ -4,12 +4,12 @@
     <block wx:if="{{isLogin==true}}">
       <view class="my-top">
         <view>
-        <view class="text-xl">小王
-          <text>未实名</text>
-        </view>
-        <view class="margin-top-sm">
-          <text>1593****5991</text>
-        </view>
+          <view class="text-xl">小王
+            <text class="cu-tag bg-orange">未实名</text>
+          </view>
+          <view class="margin-top-sm">
+            <text>1593****5991</text>
+          </view>
         </view>
         <view bindtap="goPic" class="userAvatarUrl">
           <view class="cu-avatar xl round margin-left" style="background-image:url(/images/user.jpg);"></view>
@@ -17,16 +17,16 @@
       </view>
       <view class="money-list">
         <view>
-        <text class="red-text">0.00</text>
-        <text>钱包提现</text>
+          <text class="text-yellow">0.00</text>
+          <text>钱包提现</text>
         </view>
-         <view>
-        <text class="red-text">67%</text>
-        <text>我的简历</text>
+        <view bindtap="goToPage" data-id="5">
+          <text class="text-yellow">67%</text>
+          <text>我的简历</text>
         </view>
-         <view>
-        <text class="red-text">14</text>
-        <text>关注公司</text>
+        <view>
+          <text class="text-yellow">14</text>
+          <text>关注公司</text>
         </view>
       </view>
     </block>
@@ -38,25 +38,28 @@
     <image src="https://raw.githubusercontent.com/weilanwl/ColorUI/master/demo/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
   <view class="padding flex text-center text-grey bg-white shadow-warp">
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-orange">{{visitTotal}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-attentionfill"></text>已投递</view>
+    <view class="flex flex-sub flex-direction solid-right" bindtap="goToPage" data-id="1">
+      <view class="text-xxl text-orange">
+        <text class="cuIcon-post"></text>
+      </view>
+      <view class="margin-top-sm">已投递</view>
     </view>
-    <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-blue">{{starCount}}</view>
-      <view class="margin-top-sm">
-        <text class="cuIcon-favorfill"></text>已录用</view>
+    <view class="flex flex-sub flex-direction solid-right" bindtap="goToPage" data-id="2">
+      <view class="text-xxl text-orange">
+        <text class="cuIcon-roundcheck"></text></view>
+      <view class="margin-top-sm">已录用</view>
     </view>
-    <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">{{forksCount}}</view>
+    <view class="flex flex-sub flex-direction" bindtap="goToPage" data-id="3">
+      <view class="text-xxl text-orange">
+       <text class="cuIcon-friendfamous"></text>
+      </view>
       <view class="margin-top-sm">
-        <text class="cuIcon-fork"></text> 已到岗</view>
+        已到岗</view>
     </view>
-     <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">{{forksCount}}</view>
+    <view class="flex flex-sub flex-direction" bindtap="goToPage" data-id="4">
+      <view class="text-xxl text-orange"><text class="cuIcon-pay"></text></view>
       <view class="margin-top-sm">
-        <text class="cuIcon-fork"></text>已结算</view>
+        已结算</view>
     </view>
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
@@ -94,7 +97,7 @@
         <text class="text-grey">切换身份</text>
       </view>
     </view>
-      <view class="cu-item arrow">
+    <view class="cu-item arrow">
       <view class="content" bindtap="toFor">
         <text class="cuIcon-formfill text-green"></text>
         <text class="text-grey">意见反馈</text>

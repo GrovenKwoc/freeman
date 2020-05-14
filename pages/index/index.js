@@ -45,7 +45,6 @@ Page({
       // for(let i=0; i<data.length;i++){
       //   console.log(data[i].Desc == ' ')
       // }
-      console.log(data)
       this.setData({
         DataArr: data
       })
@@ -119,8 +118,6 @@ Page({
   },
   goDetail(e) {
     let id = e.currentTarget.dataset.id
-    console.log(id)
-
     wx.navigateTo({
       url: '/pages/detail/detail?id='+id
     })

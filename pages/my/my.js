@@ -153,6 +153,29 @@ Page({
       url: '/pages/my/company/company'
     })
   },
+  goToPage(e){
+    console.log(e)
+    let d = e.currentTarget.dataset.id
+    switch(d){
+      case '1':
+       wx.switchTab({
+         url: '/pages/work/work',
+       })
+      break;
+      case '2':
+      break;
+      case '3':
+      break;
+      case '4':
+      break;
+      case '5':
+      // 简历页面
+      wx.navigateTo({
+        url: '/pages/my/resume/resume',
+      })
+      break;
+    }
+  },
   getInfo(){
     var _this = this
     // 查看是否授权

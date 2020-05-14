@@ -111,6 +111,22 @@ page {
 .DrawerPage .cu-bar.tabbar .action {
   flex: initial;
 }
-.cu-bar {
-  background:#34cc99;
+.index-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 1rem;
+}
+.index-card-bottom{
+  display: flex;
+  align-items: center;
+}
+.index-card-bottom {
+  justify-content: flex-start;
+}
+.index-card-bottom  .icb-content {
+  padding-left: 20rpx;
+}
+.ic-box text {
+  margin-right: 20rpx;
 }

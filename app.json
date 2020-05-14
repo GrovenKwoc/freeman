@@ -8,7 +8,9 @@
     "pages/startup/start",
     "pages/my/company/company",
     "pages/detail/detail",
-    "pages/indexes/indexes"
+    "pages/indexes/indexes",
+    "pages/work/record/record",
+    "pages/my/resume/resume"
   ],
   "window": {
     "backgroundTextStyle": "light",

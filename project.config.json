@@ -70,29 +70,23 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/my/info/info",
-					"pathName": "pages/my/info/info",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/detail/detail",
-					"pathName": "pages/detail/detail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "pages/my/my",
 					"pathName": "pages/my/my",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "pages/detail/detail",
 					"pathName": "pages/detail/detail",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/work/work",
+					"pathName": "pages/work/work",
+					"query": "",
 					"scene": null
 				}
 			]

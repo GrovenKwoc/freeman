@@ -21,7 +21,17 @@ class Base {
       },
       data: params.data,
       success:function(res){
-        params.sCallBack && params.sCallBack(res)
+        // 增加全局拦截器 处理token过期重新登陆
+        if(res.data.error_code == 20003){
+          wx.showModal({
+            content: '登陆超时,请重新登陆',
+          })
+          //清除local缓存
+          wx.removeStorageSync('token')
+          wx.removeStorageSync('isLogin')
+        } else {
+          params.sCallBack && params.sCallBack(res)
+        }
       },
       fail:function(err){
         console.log(err)

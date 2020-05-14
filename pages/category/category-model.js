@@ -7,7 +7,7 @@ class Category extends Base {
 
   getList(page, callBack) {
     var params = {
-      'url': '/post?page='+ page,
+      'url': '/index/post?page='+ page,
       sCallBack: function (res) {
         callBack && callBack(res);
       }
