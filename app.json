@@ -1,17 +1,17 @@
 {
   "pages": [
-    "pages/tabbar/tabbar",
     "pages/index/index",
-    "pages/category/category",
-    "pages/work/work",
-    "pages/my/my",
-    "pages/my/info/info",
-    "pages/startup/start",
-    "pages/my/company/company",
-    "pages/detail/detail",
-    "pages/indexes/indexes",
-    "pages/work/record/record",
-    "pages/my/resume/resume"
+    "pages/home/index/index",
+    "pages/home/startup/start",
+    "pages/home/indexes/indexes",
+    "pages/office/category/category",
+    "pages/office/detail/detail",
+    "pages/message/work/work",
+    "pages/message/record/record",
+    "pages/about/my/my",
+    "pages/about/info/info",
+    "pages/about/company/company",
+    "pages/about/resume/resume"
   ],
   "window": {
     "backgroundTextStyle": "light",

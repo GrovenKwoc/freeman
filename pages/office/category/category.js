@@ -3,7 +3,6 @@ import {
 } from './category-model.js'
 var categoryModel = new Category();
 const app = getApp()
-var json = require('../../mock/json.js')
 Page({
   data: {
     StatusBar: app.globalData.StatusBar,
