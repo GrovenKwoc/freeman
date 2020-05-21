@@ -16,23 +16,23 @@ App({
     })
 
     // 监测本地存储中是否存在用户类型，如果不存在 重定向到启动选择页面
-    let userType = wx.getStorageSync('userType')
-    console.log(userType)
-    if (!userType) {
-      wx.reLaunch({
-        url: '/pages/startup/start'
-      })
-    }
+    // let userType = wx.getStorageSync('userType')
+    // console.log(userType)
+    // if (!userType) {
+    //   wx.reLaunch({
+    //     url: '/pages/home/startup/start'
+    //   })
+    // }
   },
   onLoad: function () {
     // 监测本地存储中是否存在用户类型，如果不存在 重定向到启动选择页面
-    let userType = wx.getStorageSync('userType')
-    console.log(userType)
-    if (!userType) {
-      wx.reLaunch({
-        url: '/pages/startup/start'
-      })
-    }
+    // let userType = wx.getStorageSync('userType')
+    // console.log(userType)
+    // if (!userType) {
+    //   wx.reLaunch({
+    //     url: '/pages/home/startup/start'
+    //   })
+    // }
   },
   globalData: {
     userInfo: null,

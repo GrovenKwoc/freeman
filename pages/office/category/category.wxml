@@ -18,7 +18,7 @@
 </view>
 <!-- 列表 -->
 <scroll-view scroll-y style="height: 950rpx;">
-<view class="cu-card article no-card" bindtap="goDetail" data-id="{{item.id}}">
+<view class="cu-card article no-card" wx:key="idx" bindtap="goDetail" data-id="{{item.id}}">
   <view class="cu-item shadow" wx:for="{{list}}" bindtap="goDetail" data-id="{{item.id}}">
 			<view class="title">
 				<view class="text-cut">{{item.job_name}}

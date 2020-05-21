@@ -14,13 +14,13 @@ Page({
   },
   job() {
     wx.setStorageSync('userType', 1)
-    wx.switchTab({
+    wx.redirectTo({
       url: '/pages/index/index'
     })
   },
   hir() {
     wx.setStorageSync('userType', 2)
-    wx.switchTab({
+    wx.redirectTo({
       url: '/pages/index/index'
     })
   },
