@@ -2,7 +2,12 @@
 <office wx:if="{{PageCur=='office'}}"></office>
 <message wx:if="{{PageCur=='message'}}"></message>
 <about wx:if="{{PageCur=='about'}}"></about>
+<index wx:if="{{PageCur=='index'}}"></index>
+<job wx:if="{{PageCur=='job'}}"></job>
+<log wx:if="{{PageCur=='log'}}"></log>
+
 <view class="cu-bar tabbar bg-white shadow foot">
+  <block wx:if="{{userType==1}}">
   <view class="action" bindtap="NavChange" data-cur="home">
     <view class='cuIcon-cu-image'>
       <image src="/images/tabbar/{{PageCur=='home'?'select_':''}}home.png"></image>
@@ -21,6 +26,28 @@
     </view>
     <view class="{{PageCur=='message'?'text-green':'text-gray'}}">消息</view>
   </view>
+</block>
+  <block wx:if="{{userType==2}}">
+
+  <view class="action" bindtap="NavChange" data-cur="index">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/work{{PageCur=='index'?'_select':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='index'?'text-green':'text-gray'}}">主页</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="job">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/work{{PageCur=='job'?'_select':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='job'?'text-green':'text-gray'}}">职位管理</view>
+  </view>
+    <view class="action" bindtap="NavChange" data-cur="log">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/work{{PageCur=='log'?'_select':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='log'?'text-green':'text-gray'}}">投递记录</view>
+  </view>
+</block>
   <view class="action" bindtap="NavChange" data-cur="about">
     <view class='cuIcon-cu-image'>
       <image src="/images/tabbar/my{{PageCur=='about'?'_select':''}}.png"></image>

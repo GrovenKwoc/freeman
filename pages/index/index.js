@@ -1,7 +1,7 @@
 Page({
   data: {
-    PageCur: 'home',
-    userType: 1
+    PageCur: 'index',
+    userType: 2
   },
   NavChange(e) {
     this.setData({

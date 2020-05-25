@@ -3,6 +3,9 @@
       "home": "/pages/home/index/index",
       "office": "/pages/office/category/category",
       "message": "/pages/message/work/work",
-      "about": "/pages/about/my/my"
+      "about": "/pages/about/my/my",
+      "index": "/pages/company/index/index",
+      "job": "/pages/company/job/job",
+      "log": "/pages/company/log/log"
   }
 }

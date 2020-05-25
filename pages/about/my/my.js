@@ -50,28 +50,20 @@ Component({
       }
       return true
     },
-    // 跳转到我的简历页面  此处需要添加获取用户手机号码权限
-    myResume() {
-      if (this.checkLogin()) {
-        wx.navigateTo({
-          url: '/pages/about/resume/resume'
-        })
-      }
-    },
     /**
      * 复制内容到剪切板 暂时未用到此方法
      */
-    CopyLink(e) {
-      wx.setClipboardData({
-        data: e.currentTarget.dataset.link,
-        success: res => {
-          wx.showToast({
-            title: '已复制',
-            duration: 1000,
-          })
-        }
-      })
-    },
+    // CopyLink(e) {
+    //   wx.setClipboardData({
+    //     data: e.currentTarget.dataset.link,
+    //     success: res => {
+    //       wx.showToast({
+    //         title: '已复制',
+    //         duration: 1000,
+    //       })
+    //     }
+    //   })
+    // },
     // goPic(e) {
     //   //单击6次跳转到图片页
     //   let count = this.data.clickCount
@@ -96,21 +88,12 @@ Component({
         title: '暂未开放',
       })
     },
-    // 企业信息
-    companyDetail() {
-      // wx.showToast({
-      //   title: '暂未开放',
-      // })
-      wx.navigateTo({
-        url: '/pages/about/my/company/company'
-      })
-    },
     goToPage(e) {
       console.log(e)
       let d = e.currentTarget.dataset.id
       switch (d) {
         case '1':
-          wx.switchTab({
+          wx.navigateTo({
             url: '/pages/message/work/work',
           })
           break;
@@ -123,7 +106,13 @@ Component({
         case '5':
           // 简历页面
           wx.navigateTo({
-            url: '/pages/my/resume/resume',
+            url: '/pages/about/resume/resume',
+          })
+          break;
+          case '6':
+          // 简历页面
+          wx.navigateTo({
+            url: '/pages/home/startup/start',
           })
           break;
       }
