@@ -93,6 +93,13 @@
 					"id": -1,
 					"name": "pages/my/resume/resume",
 					"pathName": "pages/my/resume/resume",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
 					"scene": null
 				}
 			]

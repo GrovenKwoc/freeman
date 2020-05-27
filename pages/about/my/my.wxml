@@ -65,10 +65,36 @@
       </view>
     </block>
     <block wx:if="{{userType==2}}">
-      企业信息
+      <view class="UCenter-bg bg-blue flex company-header">
+        <view class="cu-avatar xl round margin-left" style="background-image:url(/images/user.jpg);"></view>
+        <view class="c-header-text">
+          <text>帐户昵称</text>
+          <view>河南某某有限公司</view>
+        </view>
+        <view bindtap="goCertification">
+          <text class="cuIcon-evaluate_fill text-white"></text> 公司认证
+          <text class="cuIcon-right text-white"></text>
+        </view>
+      </view>
+      <view class="compony_list_box">
+        <view class="flex">
+          <view class="clb-item" bindtap="goToPage" data-id="7">
+            <text>103</text>
+            <view>在线职位</view>
+          </view>
+          <view class="clb-item">
+            <text>12</text>
+            <view>已应聘</view>
+          </view>
+          <view class="clb-item">
+            <text>0</text>
+            <view>已邀请</view>
+          </view>
+        </view>
+      </view>
     </block>
   </block>
-  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  <view class="cu-list menu">
     <block wx:if="{{userType==1}}">
       <view class="cu-item arrow">
         <view class="content" bindtap="toFor">

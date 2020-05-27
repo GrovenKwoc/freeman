@@ -79,3 +79,42 @@ map,.mapBox{
 .text-xxl {
   font-size: 50rpx;
 }
+
+.compony_list_box {
+  background: #f1f1f1;
+  padding: 20rpx 30rpx 0;
+}
+.compony_list_box>view {
+    background: #fff;
+    position: relative;
+    top: -50rpx;
+    padding: 24rpx;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border-radius: 10rpx;
+}
+
+.compony_list_box .clb-item{
+  color: #999;
+}
+
+.compony_list_box .clb-item view{
+  margin-top: 10rpx;
+}
+
+.compony_list_box .clb-item text{
+  font-size: 36rpx;
+  color: #000;
+}
+
+.company-header {
+  height: 445rpx;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx 40rpx 0;
+}
+
+.c-header-text {
+  margin-left: -100rpx;
+}

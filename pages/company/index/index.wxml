@@ -1,2 +1,18 @@
-<!--pages/company/index/index.wxml-->
-<text>pages/company/index/index.wxml</text>
+<view class='cu-custom'>
+	<view class="cu-bar bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+		<navigator class='action' delta="1" hover-class="none" url="/page/my/my">
+			<text class='cuIcon-location'></text> 郑州
+		</navigator>
+	</view>
+  <view class="content">
+    <view class="cont-box-center flex">
+      <view class="round bg-white">
+        <text class="cuIcon-edit lg text-blue"></text>
+      </view>
+    </view>
+     <view class="cont-btn">
+          <button class="cu-btn round sm bg-blue">发布职位</button> 
+        </view>
+        <view class="text-center">请先发布职位才能搜索侊需要的简历</view>
+  </view>
+</view>

@@ -18,21 +18,22 @@ Component({
   lifetimes: {
     // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
     attached: function () {
-      // 如果登陆成功 则获取用户类型
-      let userType = wx.getStorageSync('userType')
-      if (userType) {
-        let value = wx.getStorageSync('isLogin')
+      // 请求用户接口 获取用户类型
+      this._loadData()
+      // let userType = wx.getStorageSync('userType')
+      // if (userType) {
+      //   let value = wx.getStorageSync('isLogin')
 
-        this.setData({
-          'userType': userType,
-          'isLogin': value
-        })
-      } else {
-        // 未获取用户类型跳转到起始页
-        wx.redirectTo({
-          url: '/pages/home/startup/start'
-        })
-      }
+      //   this.setData({
+      //     'userType': userType,
+      //     'isLogin': value
+      //   })
+      // } else {
+      //   // 未获取用户类型跳转到起始页
+      //   wx.redirectTo({
+      //     url: '/pages/home/startup/start'
+      //   })
+      // }
     },
     moved: function () { },
     detached: function () { },
@@ -49,6 +50,20 @@ Component({
         return false
       }
       return true
+    },
+    _loadData() {
+      let _this = this
+      let params = {
+        token: wx.getStorageSync('token')
+      }
+      MyData.getUserInfo(params, (res) => {
+        let data = res.data.data
+        _this.setData({
+          userType: data.type,
+          isLogin: wx.getStorageSync('isLogin')
+        })
+        getApp().userInfo = res.data.data
+      })
     },
     /**
      * 复制内容到剪切板 暂时未用到此方法
@@ -110,12 +125,24 @@ Component({
           })
           break;
           case '6':
-          // 简历页面
+          // 切换身份页
           wx.navigateTo({
             url: '/pages/home/startup/start',
           })
           break;
+        case '7':
+          // 切换身份页
+          wx.navigateTo({
+            url: '/pages/company/job/job',
+          })
+          break;
       }
+    },
+    // 跳转企业认证页面
+    goCertification() {
+      wx:wx.redirectTo({
+        url: '/pages/company/cert/cert'
+      })
     },
     getInfo() {
       var _this = this
@@ -140,6 +167,7 @@ Component({
                       // console.log(params)
                       //return false
                       MyData.getToken(params, (res) => {
+                        console.log(res)
                         let data = res.data
                         // 存储登陆态 token
                         if (data.code == 1) {
@@ -147,7 +175,7 @@ Component({
                           // 设置一个全局登陆状态值
                           wx.setStorageSync('isLogin', true)
                           // 登陆成功后 刷新当前页面 Todo
-                          _this.attached()
+                          //_this.attached()
                         }
                       })
                     } else {

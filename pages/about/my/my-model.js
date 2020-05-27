@@ -16,6 +16,18 @@ class My extends Base {
     }
     this.request(params);
   }
+
+  getUserInfo(data, callBack) {
+    var params = {
+      'url': '/my',
+      'type': 'post',
+      'data': { data },
+      sCallBack: function (res) {
+        callBack && callBack(res);
+      }
+    }
+    this.request(params);
+  }
 }
 
 export { My }

@@ -1,1 +1,29 @@
-/* pages/company/index/index.wxss */
+.content {
+  padding-top: 50%;
+}
+.cont-box-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.round {
+  width: 200rpx;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cuIcon-edit {
+  font-size: 100rpx;
+}
+
+.cont-btn {
+  display: flex;
+  justify-content: center;
+  margin: 50rpx 0;
+}
+
+.cu-btn.sm {
+  font-size: 24rpx;
+}

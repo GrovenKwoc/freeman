@@ -11,7 +11,8 @@
     "pages/about/my/my",
     "pages/about/info/info",
     "pages/about/company/company",
-    "pages/about/resume/resume"
+    "pages/about/resume/resume",
+    "pages/company/cert/cert"
   ],
   "window": {
     "backgroundTextStyle": "light",
