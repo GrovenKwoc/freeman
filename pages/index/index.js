@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
   data: {
     PageCur: 'home',
@@ -8,8 +9,26 @@ Page({
       PageCur: e.currentTarget.dataset.cur
     })
   },
+  onLoad(){
+
+ 
+  },
   onShow(){
-  
+    let type = wx.getStorageSync('userType')
+    console.log(type)
+    console.log(this.data)
+    if (type != null) {
+      let pageCur = ''
+      if (type == 2) {
+        pageCur = 'index'
+      } else {
+        pageCur = 'home'
+      }
+      this.setData({
+        'userType': type,
+        'PageCur': pageCur
+      })
+    }
   },
   onShareAppMessage() {
     return {

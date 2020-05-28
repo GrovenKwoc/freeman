@@ -5,9 +5,9 @@ class My extends Base {
     super()
   }
 
-  getToken(data, callBack) {
+  updateInfo(data, callBack) {
     var params = {
-      'url': '/token/user',
+      'url': '/my/update',
       'type': 'post',
       'data': { data },
       sCallBack: function (res) {

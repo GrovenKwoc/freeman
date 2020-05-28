@@ -1,4 +1,7 @@
 // pages/startup/start.js
+import { Start } from './start-model.js'
+var startModel  = new Start();
+var app = getApp()
 Page({
 
   /**
@@ -10,16 +13,37 @@ Page({
     warnSize: 'default',
     disabled: false,
     plain: false,
-    loading: false
+    loading: false,
+    type: 1
+  },
+  goBack(){
+    wx.navigateBack({
+      delta: 1
+    })
   },
   job() {
+    let params = {
+      'type': 1
+    }
+    startModel.switchUser(params, (res) => {
+      console.log(res.data)
+    })
     wx.setStorageSync('userType', 1)
+    app.globalData.isLogin = false
+
     wx.redirectTo({
       url: '/pages/index/index'
     })
   },
   hir() {
+    let params = {
+      'type': 2
+    }
+    startModel.switchUser(params,(res)=>{
+      console.log(res.data)
+    })
     wx.setStorageSync('userType', 2)
+    app.globalData.isLogin = false
     wx.redirectTo({
       url: '/pages/index/index'
     })
@@ -28,7 +52,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    let type = wx.getStorageSync('userType')
+    console.log(type)
+    this.setData({
+      'type': !type ? 1 : type
+    })
   },
 
   /**

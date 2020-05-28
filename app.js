@@ -1,7 +1,13 @@
 //app.js
+import {
+  Token
+} from 'utils/token.js'
 App({
   onLaunch: function() {
-    console.log('111')
+
+    var token = new Token();
+    token.verify()
+
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;
@@ -16,15 +22,14 @@ App({
     })
 
     // 监测本地存储中是否存在用户类型，如果不存在 重定向到启动选择页面
-    // let userType = wx.getStorageSync('userType')
-    // console.log(userType)
-    // if (!userType) {
-    //   wx.reLaunch({
-    //     url: '/pages/home/startup/start'
-    //   })
-    // }
+    let userType = wx.getStorageSync('userType')
+    if (!userType) {
+      wx.redirectTo({
+        url: '/pages/home/startup/start'
+      })
+    }
   },
-  onLoad: function () {
+  onLoad: function() {
     // 监测本地存储中是否存在用户类型，如果不存在 重定向到启动选择页面
     // let userType = wx.getStorageSync('userType')
     // console.log(userType)
@@ -36,5 +41,6 @@ App({
   },
   globalData: {
     userInfo: null,
+    isLogin: false
   }
 })
