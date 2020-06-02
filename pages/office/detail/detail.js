@@ -25,7 +25,6 @@ Page({
   loadData(id) {
     let that = this
     detailModel.getInfo(id, (res) => {
-      console.log(res.data.data)
       that.setData({
         vo: res.data.data
       })

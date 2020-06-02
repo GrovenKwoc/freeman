@@ -26,6 +26,18 @@ class Info extends Base {
     }
     this.request(params);
   }
+
+  saveUploadImg(filePath, callBack){
+    var params = {
+      'url': '/upload/image',
+      'type': 'post',
+      'data': { filePath },
+      sCallBack: function (res) {
+        callBack && callBack(res);
+      }
+    }
+    this.upload(params);
+  }
 }
 
 export { Info }

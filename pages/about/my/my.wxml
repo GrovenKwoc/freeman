@@ -11,9 +11,9 @@
         <view class="my-top">
           <view>
             <view class="text-xl">{{userInfo.nickname}}
-              <text class="cu-tag bg-orange" bindtap="goVerify">
+              <text class="cu-tag bg-orange" >
               <block wx:if="{{userInfo.is_verify}}">已实名</block>
-              <block wx:else>未实名</block>
+              <block wx:if="{{!userInfo.is_verify}}" bindtap="goVerify">未实名</block>
               </text>
             </view>
             <view class="margin-top-sm">

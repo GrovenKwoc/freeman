@@ -22,7 +22,6 @@ Component({
     attached: function() {
       // 如果登陆成功 则获取用户类型
       let userInfo = wx.getStorageSync('userInfo')
-      console.log(userInfo)
       if (userInfo) {
         this.setData({
           'userType': userInfo.type,

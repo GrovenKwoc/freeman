@@ -10,6 +10,8 @@ Page({
     info: [],
     operator: [],
     imgList: [],
+    images: [], // 身份证正反面
+
   },
   onLoad() {
    // this.loadData()
@@ -34,6 +36,17 @@ Page({
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
       success: (res) => {
+        //图片上传到服务器，返回图片url地址
+        const tempFilePaths = res.tempFilePaths
+        MyInfo.saveUploadImg(tempFilePaths[0],(res)=>{
+          let resData = JSON.parse(res.data)
+          if (resData.code == 1){
+            this.setData({
+              'images': this.data.images.concat(resData.data)
+            })
+          }
+        })
+
         if (this.data.imgList.length != 0) {
           this.setData({
             imgList: this.data.imgList.concat(res.tempFilePaths)
@@ -110,23 +123,34 @@ Page({
       })
       return false
     }
+    if( this.data.images.length < 2){
+      wx.showToast({
+        title: '请上传身份证正反面照片',
+        icon: 'none'
+      })
+      return false
+    }
+
     // 提交数据
     let data = {
       'username': fromData.realname,
       'idCard': fromData.idcard,
       'mobile': fromData.mobile,
+      'images': this.data.images
     }
 
     MyInfo.saveInfo(data, (res) => {
-      console.log(res.data)
+      
       if (res.data.code == 1) {
         wx.showToast({
           title: res.data.info,
+          icon: 'none'
         })
-        this.setData({
-          btnStatus: false,
-          formEdit: true
-        })
+        setTimeout(function(){
+          wx.redirectTo({
+            url: '/pages/about/my/my',
+          })
+        },2000)
       } else {
         wx.showToast({
           title: res.data.info,

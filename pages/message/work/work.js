@@ -55,7 +55,7 @@ Component({
     goDetail(e) {
       let id = e.currentTarget.dataset.id
       wx.redirectTo({
-        url: '/pages/work/record/record?id=' + id,
+        url: '/pages/message/record/record?id=' + id,
       })
     }
   }

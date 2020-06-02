@@ -59,6 +59,24 @@ class Base {
       this.request(params, true)
     })
   }
+
+  //封装文件上传
+  upload(params){
+    var _url = encodeURI(this.baseRequestUrl + params.url)
+    wx.uploadFile({
+      url: _url,
+      header: {
+        'content-type': 'application/json;',
+        'token': wx.getStorageSync('token')
+      },
+      filePath: params.data.filePath,
+      name: 'image',
+      success(res) {
+        params.sCallBack && params.sCallBack(res)
+      }
+    })
+  }
+
 }
 
 export {

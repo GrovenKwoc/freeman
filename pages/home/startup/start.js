@@ -26,7 +26,7 @@ Page({
       'type': 1
     }
     startModel.switchUser(params, (res) => {
-      console.log(res.data)
+      //console.log(res.data)
     })
     wx.setStorageSync('userType', 1)
     wx.setStorageSync('isLogin', false)
@@ -39,7 +39,7 @@ Page({
       'type': 2
     }
     startModel.switchUser(params,(res)=>{
-      console.log(res.data)
+     // console.log(res.data)
     })
     wx.setStorageSync('userType', 2)
     wx.setStorageSync('isLogin', false)
@@ -52,7 +52,6 @@ Page({
    */
   onLoad: function(options) {
     let type = wx.getStorageSync('userType')
-    console.log(type)
     this.setData({
       'type': !type ? 0 : type
     })

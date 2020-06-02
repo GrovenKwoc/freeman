@@ -10,10 +10,10 @@
   </view>
 </scroll-view>
 <swiper current="{{TabCur}}" duration="300" bindchange="swiperTab" style="height: 50rem;">
-  <swiper-item wx:for="{{types}}" wx:for-index="index">
+  <swiper-item wx:for="{{types}}" wx:key="index">
     <scroll-view scroll-y="true" bindscrolltolower="loadMore" scroll-top="{{scrollTop}}" bindscrolltoupper="onPullRefresh" style="height:50rem">
       <view class="cu-card article">
-        <view class="cu-item shadow" wx:for="{{DataArr}}" bindtap="goDetail" data-id="{{item.id}}">
+        <view class="cu-item shadow" wx:for="{{DataArr}}" wx:key="ids" bindtap="goDetail" data-id="{{item.id}}">
           <view class="title">
             <view class="text-cut">{{item.job_name}}
               <view class="cu-tag bg-red light sm round">{{item.status}}</view>

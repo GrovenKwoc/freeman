@@ -7,7 +7,7 @@ class Index extends Base {
   
   getDataList(typeId,callBack){
     var params = {
-      'url': '/index',
+      'url': 'index',
       sCallBack: function(res){
         callBack && callBack(res);
       }

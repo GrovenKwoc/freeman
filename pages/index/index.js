@@ -15,8 +15,6 @@ Page({
   },
   onShow(){
     let type = wx.getStorageSync('userType')
-    console.log(type)
-    console.log(this.data)
     if (type != null) {
       let pageCur = ''
       if (type == 2) {
