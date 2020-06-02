@@ -29,8 +29,7 @@ Page({
       console.log(res.data)
     })
     wx.setStorageSync('userType', 1)
-    app.globalData.isLogin = false
-
+    wx.setStorageSync('isLogin', false)
     wx.redirectTo({
       url: '/pages/index/index'
     })
@@ -43,7 +42,7 @@ Page({
       console.log(res.data)
     })
     wx.setStorageSync('userType', 2)
-    app.globalData.isLogin = false
+    wx.setStorageSync('isLogin', false)
     wx.redirectTo({
       url: '/pages/index/index'
     })
@@ -55,7 +54,7 @@ Page({
     let type = wx.getStorageSync('userType')
     console.log(type)
     this.setData({
-      'type': !type ? 1 : type
+      'type': !type ? 0 : type
     })
   },
 

@@ -17,7 +17,7 @@ class Info extends Base {
 
   saveInfo(data, callBack) {
     var params = {
-      'url': '/memberInfo/save',
+      'url': '/my/verify',
       'type': 'post',
       'data': { data },
       sCallBack: function (res) {

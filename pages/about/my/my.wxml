@@ -1,22 +1,27 @@
 <!--pages/my/my.wxml-->
 <scroll-view scroll-y class="scrollPage">
   <block wx:if="{{isLogin==false}}">
-    <button open-type="getUserInfo" bindgetuserinfo="getInfo">授权登录</button>
+    <view class="UCenter-bg bg-blue">
+      <button open-type="getUserInfo" bindgetuserinfo="getInfo">授权登录</button>
+    </view>
   </block>
   <block wx:if="{{isLogin==true}}">
     <block wx:if="{{userType==1}}">
       <view class="UCenter-bg bg-blue">
         <view class="my-top">
           <view>
-            <view class="text-xl">小王
-              <text class="cu-tag bg-orange">未实名</text>
+            <view class="text-xl">{{userInfo.nickname}}
+              <text class="cu-tag bg-orange" bindtap="goVerify">
+              <block wx:if="{{userInfo.is_verify}}">已实名</block>
+              <block wx:else>未实名</block>
+              </text>
             </view>
             <view class="margin-top-sm">
               <text>1593****5991</text>
             </view>
           </view>
           <view bindtap="goPic" class="userAvatarUrl">
-            <view class="cu-avatar xl round margin-left" style="background-image:url(/images/user.jpg);"></view>
+            <view class="cu-avatar xl round margin-left" style="background-image:url({{userInfo.head_img}});"></view>
           </view>
         </view>
         <view class="money-list">

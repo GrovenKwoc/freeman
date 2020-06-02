@@ -14,22 +14,25 @@ Component({
     starTime: 0,
     clickCount: 0,
     isLogin: false,
-    userType: 1
+    userType: 1,
+    userInfo: {}
   },
   lifetimes: {
     // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-    attached: function () {
+    attached: function() {
       // 如果登陆成功 则获取用户类型
-      let userType = app.globalData.userInfo
-      if (userType) {
+      let userInfo = wx.getStorageSync('userInfo')
+      console.log(userInfo)
+      if (userInfo) {
         this.setData({
-          'userType': userType.type,
-          'isLogin': app.globalData.isLogin
+          'userType': userInfo.type,
+          'isLogin': wx.getStorageSync('isLogin'),
+          'userInfo': userInfo
         })
       }
     },
-    moved: function () { },
-    detached: function () { },
+    moved: function() {},
+    detached: function() {},
   },
   methods: {
     // 检测是否登陆
@@ -59,8 +62,8 @@ Component({
       })
     },
     /**
-  * 进入我的收藏
-  */
+     * 进入我的收藏
+     */
     toFor() {
       wx.showToast({
         title: '暂未开放',
@@ -86,7 +89,7 @@ Component({
             url: '/pages/about/resume/resume',
           })
           break;
-          case '6':
+        case '6':
           // 切换身份页
           wx.navigateTo({
             url: '/pages/home/startup/start',
@@ -102,8 +105,14 @@ Component({
     },
     // 跳转企业认证页面
     goCertification() {
-      wx:wx.redirectTo({
+      wx.redirectTo({
         url: '/pages/company/cert/cert'
+      })
+    },
+    // 跳转到个人认证页面
+    goVerify() {
+      wx.redirectTo({
+        url: '/pages/about/info/info',
       })
     },
     getInfo() {
@@ -114,7 +123,7 @@ Component({
           if (res.authSetting['scope.userInfo']) {
             // 已经授权，可以直接调用 getUserInfo 获取头像昵称
             wx.getUserInfo({
-              success: function (res) {
+              success: function(res) {
                 //更新用户信息
                 //获取token
                 let params = {
@@ -122,9 +131,10 @@ Component({
                   'type': wx.getStorageSync('userType') == '' ? 1 : wx.getStorageSync('userType')
                 }
                 MyData.updateInfo(params, (res) => {
-                  app.globalData.userInfo = res.data.data
-                  app.globalData.isLogin = true
+                  wx.setStorageSync('isLogin', true)
+                  wx.setStorageSync('userInfo', res.data.data)
                   _this.setData({
+                    'userInfo': res.data.data,
                     'userType': res.data.data.type,
                     'isLogin': true
                   })

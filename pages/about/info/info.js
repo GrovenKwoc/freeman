@@ -8,25 +8,11 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     info: [],
-    jobDate: null,
-    jobDatePicker: [],
-    payType: null,
-    payTypePicker: [],
-    dutyTime: null,
-    dutyTimePicker: [],
-    profession: [],
     operator: [],
-    multiIndex: [0, 0, 0],
-    date: '2020-3-20',
-    region: ['河南省', '郑州市', '金水区'],
     imgList: [],
-    modalName: null,
-    textareaBValue: '',
-    btnStatus: false,
-    formEdit: true,
   },
   onLoad() {
-    this.loadData()
+   // this.loadData()
   },
   loadData() {
     MyInfo.getInfo((res) => {
@@ -40,36 +26,6 @@ Page({
         profession: data.other.profession,
         operator: data.other.operator
       })
-    })
-  },
-  jobDatePickerChange(e) {
-    this.setData({
-      jobDate: e.detail.value
-    })
-  },
-  payTypePickerChange(e) {
-    this.setData({
-      payType: e.detail.value
-    })
-  },
-  dutyTimePickerChange(e) {
-    this.setData({
-      dutyTime: e.detail.value
-    })
-  },
-  MultiChange(e) {
-    this.setData({
-      multiIndex: e.detail.value
-    })
-  },
-  DateChange(e) {
-    this.setData({
-      date: e.detail.value
-    })
-  },
-  RegionChange: function(e) {
-    this.setData({
-      region: e.detail.value
     })
   },
   ChooseImage() {
@@ -127,68 +83,38 @@ Page({
       modalName: e.currentTarget.dataset.target
     })
   },
-  hideModal(e) {
-    this.setData({
-      modalName: null
-    })
-  },
-  ChooseProfession(e) {
-    let items = this.data.profession;
-    let values = e.currentTarget.dataset.value;
-    for (let i = 0, lenI = items.length; i < lenI; ++i) {
-      if (items[i].value == values) {
-        items[i].checked = !items[i].checked;
-        break
-      }
-    }
-    this.setData({
-      profession: items,
-    })
-  },
-  ChooseOperator(e) {
-    let items = this.data.operator;
-    let values = e.currentTarget.dataset.value;
-    for (let i = 0, lenI = items.length; i < lenI; ++i) {
-      if (items[i].value == values) {
-        items[i].checked = !items[i].checked;
-        break
-      }
-    }
-    this.setData({
-      operator: items,
-    })
-  },
-  // 点击修改按钮
-  editBtn() {
-    this.setData({
-      btnStatus: true,
-      formEdit: false
-    })
-  },
-  cannelBtn() {
-    this.setData({
-      btnStatus: false,
-      formEdit: true
-    })
-  },
   // 表单提交
   formSubmit(e) {
     // 获取表单值
     // console.log(e.detail.value)
     let fromData = e.detail.value
     // 条件判断
-
+    if(fromData.realname == ''){
+      wx.showToast({
+        title: '真实名称不能为空',
+        icon: 'none'
+      })
+      return false
+    }
+    if (fromData.mobile == '') {
+      wx.showToast({
+        title: '手机号码不能为空',
+        icon: 'none'
+      })
+      return false
+    }
+    if (fromData.idcard == '') {
+      wx.showToast({
+        title: '身份证号不能为空',
+        icon: 'none'
+      })
+      return false
+    }
     // 提交数据
     let data = {
       'username': fromData.realname,
       'idCard': fromData.idcard,
-      'years': fromData.jobDate,
-      'pro': fromData.profession,
-      'operator': fromData.operator,
-      'expected_location': fromData.location,
-      'pay_type': fromData.pay_type,
-      'desc': fromData.desc,
-      'duty_time': fromData.dutyTime
+      'mobile': fromData.mobile,
     }
 
     MyInfo.saveInfo(data, (res) => {
