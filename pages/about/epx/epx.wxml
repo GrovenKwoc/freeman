@@ -1,0 +1,32 @@
+
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">添加工作经历</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+  <view class="cu-form-group">
+    <view class="title">公司名称</view>
+    <input placeholder="请输入公司名称" name="company_name" value="{{info.company_name}}"></input>
+  </view>
+   <view class="cu-form-group">
+    <view class="title">职位名称</view>
+    <input placeholder="请输入职位名称" name="job_name" value="{{info.job_name}}"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">开始时间</view>
+    <input placeholder="请输入入职时间" name="begin_time" value="{{info.begin_time}}"></input>
+  </view>
+    <view class="cu-form-group">
+    <view class="title">结束时间</view>
+    <input placeholder="请输入离职时间" name="end_time" value="{{info.end_time}}"></input>
+  </view>
+
+   <view class="cu-form-group align-start">
+    <view class="title">工作内容</view>
+    <textarea maxlength="-1" name="desc" placeholder="请输入在职期间的工作内容" value="{{info.desc}}"></textarea>
+  </view>
+
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue lg" form-type="submit">保存</button>
+  </view>
+</form>

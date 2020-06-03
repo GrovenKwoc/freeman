@@ -1,18 +1,25 @@
 // pages/my/resume/resume.js
+import { Resume } from './resume-model.js'
+var ResumeModal = new Resume()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      info: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    ResumeModal.getUserInfo((res)=>{
+      let data = res.data
+      this.setData({
+        'info': data.data
+      })
+    })
   },
 
   /**
@@ -62,5 +69,20 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  goEditHeader() {
+    wx.redirectTo({
+      url: '/pages/about/editheader/edit',
+    })
+  },
+  goEpx() {
+    wx.redirectTo({
+      url: '/pages/about/epx/epx?rid=' + this.data.info.id,
+    })
+  },
+  addDesc() {
+    wx.redirectTo({
+      url: '/pages/about/desc/desc?id=' + this.data.info.id,
+    })
   }
 })

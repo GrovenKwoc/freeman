@@ -1,15 +1,16 @@
 import { Base } from '../../../utils/base.js'
 
-class Resume extends Base {
+class Epx extends Base {
+
   constructor() {
     super()
   }
 
-
-  getUserInfo(callBack) {
+  saveEpx(data,callBack) {
     var params = {
-      'url': '/my/show_resume',
+      'url': '/my/add_epx',
       'type': 'post',
+      'data': { data },
       sCallBack: function (res) {
         callBack && callBack(res);
       }
@@ -19,4 +20,4 @@ class Resume extends Base {
 
 }
 
-export { Resume }
+export { Epx }

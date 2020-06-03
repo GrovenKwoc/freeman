@@ -1,15 +1,16 @@
 import { Base } from '../../../utils/base.js'
 
-class Resume extends Base {
+class Desc extends Base {
+
   constructor() {
     super()
   }
 
-
-  getUserInfo(callBack) {
+  saveDesc(data, callBack) {
     var params = {
-      'url': '/my/show_resume',
+      'url': '/my/desc',
       'type': 'post',
+      'data': { data },
       sCallBack: function (res) {
         callBack && callBack(res);
       }
@@ -19,4 +20,4 @@ class Resume extends Base {
 
 }
 
-export { Resume }
+export { Desc }

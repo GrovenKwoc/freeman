@@ -1,0 +1,14 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">个人简介</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+  <view class="cu-form-group align-start">
+    <view class="title">个人简介</view>
+    <textarea maxlength="-1" name="desc" placeholder="写一段话介绍一下自己" value="{{info.desc}}"></textarea>
+  </view>
+
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue lg" form-type="submit" >保存</button>
+  </view>
+</form>

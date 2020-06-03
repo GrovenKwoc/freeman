@@ -5,28 +5,28 @@
 <scroll-view scroll-y class="scrollPage">
   <view class="resume">
     <view class="wrap header-info">
-      <view class="edit">
+      <view class="edit" bindtap="goEditHeader">
         <text class="cuIcon-edit lg"></text> 编辑
       </view>
       <view bindtap="goPic" class="userAvatarUrl">
         <view class="cu-avatar xl round margin-left" style="background-image:url(/images/user.jpg);"></view>
       </view>
-      <view class="h2">张宇</view>
-      <view class="text-gray">26 | 大专 | 北京 | 172cm</view>
-      <view>手机： 15938755991</view>
-      <view>邮箱： 516954023@qq.com</view>
+      <view class="h2">{{info.name}}</view>
+      <view class="text-gray">{{info.work_year}}年 | {{info.education}} | {{info.city}} | {{info.now_state}}</view>
+      <view>手机： {{info.phone}}</view>
+      <view>邮箱：{{info.email}}</view>
     </view>
     <view class="wrap id-card">
       <view class="title">
         <view class="h2">
           <text class="line"></text>实名认证</view>
         <view>
-          <text class="cuIcon-add lg"></text>编辑</view>
+        </view>
       </view>
       <view class="id-content">
         <view>
-          <view class="name">张宇</view>
-          <text class="text-gray">4101811990******</text>
+          <view class="name">{{info.name}}</view>
+          <text class="text-gray">{{info.idcard}}</text>
         </view>
         <text class="cuIcon-right lg"></text>
       </view>
@@ -35,39 +35,54 @@
       <view class="title">
         <view class="h2">
           <text class="line"></text>工作经历</view>
-        <view>
+        <view bindtap="goEpx">
           <text class="cuIcon-add lg"></text>添加</view>
       </view>
       <view class="cu-timeline">
-        <view class="cu-item">
+        <view class="cu-item" wx:for="{{info.work_list}}" wx:key="idx">
           <view>
-            <view>2016.9.1-2021.9.1</view>
-            <view>北京XXXX科技有限公司</view>
-            <view>产品经理</view>
+            <view>{{item.begin_time}}--{{item.end_time}}</view>
+            <view>{{item.company}}</view>
+            <view>{{item.job}}</view>
           </view>
           <text class="cuIcon-right lg"></text>
         </view>
       </view>
     </view>
     <view class="wrap work-hope">
-         <view class="title">
+      <view class="title">
         <view class="h2">
           <text class="line"></text>工作期望</view>
         <view>
-          <text class="cuIcon-add lg"></text>编辑</view>
+        </view>
       </view>
       <view class="wh-content">
         <view>
-          <view>期望工作类型: 长期</view>
-          <view>期望工作时间：不限</view>
-          <view>可上班时间： 均可</view>
-          <view>是否支持全职上班： 否</view>
+          <view>期望工作类型: {{info.work_type}}</view>
+          <view>期望工作地点：{{info.location}}</view>
         </view>
         <text class="cuIcon-right lg"></text>
       </view>
     </view>
     <view class="wrap self-assess">
-      <button>添加自我评价</button>
+      <block wx:if="{{!info.introduction}}">
+        <button bindtap="addDesc">添加自我评价</button>
+      </block>
+      <block wx:if="{{info.introduction}}">
+        <view class="title">
+        <view class="h2">
+          <text class="line"></text>自我评价</view>
+        <view>
+        </view>
+      </view>
+      <view class="wh-content">
+        <view>
+          <view>{{info.introduction}}</view>
+        </view>
+        <text class="cuIcon-right lg"></text>
+      </view>
+      </block>
+
     </view>
   </view>
 </scroll-view>

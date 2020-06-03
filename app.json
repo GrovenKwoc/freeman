@@ -12,7 +12,10 @@
     "pages/about/info/info",
     "pages/about/company/company",
     "pages/about/resume/resume",
-    "pages/company/cert/cert"
+    "pages/company/cert/cert",
+    "pages/about/editheader/edit",
+    "pages/about/epx/epx",
+    "pages/about/desc/desc"
   ],
   "window": {
     "backgroundTextStyle": "light",

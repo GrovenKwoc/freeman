@@ -1,0 +1,58 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">编辑</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+
+  <view class="cu-form-group">
+    <view class="title">学历:</view>
+    <input placeholder="请选择学历" name="edu" value="{{info.education}}"></input>
+  </view>
+  
+  <view class="cu-form-group">
+    <view class="title">工作年限:</view>
+    <input placeholder="请选择工作年限" name="work_year" value="{{info.work_year}}"></input>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title">所在城市:</view>
+    <input placeholder="请输入所在城市" name="city" type="city" value="{{info.city}}"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">联系方式</view>
+    <input placeholder="输入手机号码" name="mobile" type="number" value="{{info.phone}}" disabled="{{true}}"></input>
+    <view class="cu-capsule radius">
+      <view class="cu-tag bg-blue">
+        +86
+      </view>
+      <view class="cu-tag line-blue">
+        中国大陆
+      </view>
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">邮箱:</view>
+    <input placeholder="请输入邮箱" name="email" value="{{info.email}}"></input>
+  </view>
+
+ <view class="cu-form-group">
+    <view class="title">目前工作状态:</view>
+    <input placeholder="请选择目前工作状态" name="job_status" value="{{info.now_state}}"></input>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title">期望工作类型:</view>
+    <input placeholder="请输入期望工作类型" name="job_type" value="{{info.work_type}}"></input>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title">期望工作地点:</view>
+    <input placeholder="请输入期望工作地点" name="location" value="{{info.location}}"></input>
+  </view>
+  <input name="formType" hidden="true" value="{{formType}}"></input>
+
+  <view class="padding flex flex-direction ">
+    <button class="cu-btn bg-blue lg " form-type="submit">保存</button>
+    <button class="cu-btn bg-red margin-tb-sm lg " bindtap="cannelBtn ">取消</button>
+  </view>
+</form>
