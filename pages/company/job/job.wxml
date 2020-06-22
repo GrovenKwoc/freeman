@@ -25,5 +25,8 @@
         </view>
       </view>
     </view>
+    <view class="round sendJob" bindtap="sendJob">
+      <button class="cu-btn round bg-red"role="button"aria-disabled="false">发布</button>
+    </view>
   </view>
 </view>

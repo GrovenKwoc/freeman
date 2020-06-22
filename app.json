@@ -15,7 +15,8 @@
     "pages/company/cert/cert",
     "pages/about/editheader/edit",
     "pages/about/epx/epx",
-    "pages/about/desc/desc"
+    "pages/about/desc/desc",
+    "pages/company/sendjob/sendjob"
   ],
   "window": {
     "backgroundTextStyle": "light",

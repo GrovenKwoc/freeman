@@ -17,8 +17,7 @@ Page({
   onLoad: function (options) {
     this._loadData()
   },
-
-  _loadData(){
+   _loadData(){
      EditModel.getUserInfo((res)=>{
       console.log(res)
       let data = res.data

@@ -104,13 +104,13 @@ Component({
     },
     // 跳转企业认证页面
     goCertification() {
-      wx.redirectTo({
+      wx.navigateTo({
         url: '/pages/company/cert/cert'
       })
     },
     // 跳转到个人认证页面
     goVerify() {
-      wx.redirectTo({
+      wx.navigateTo({
         url: '/pages/about/info/info',
       })
     },

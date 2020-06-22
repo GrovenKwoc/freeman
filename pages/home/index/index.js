@@ -47,6 +47,9 @@ Component({
       wx.navigateTo({
         url: '/pages/office/detail/detail?id=' + id
       })
+    },
+    selectBtn() {
+      // 显示筛选条件
     }
   }
 })

@@ -5,26 +5,41 @@
   margin: 15rpx 30rpx;
   border-radius: 10rpx;
 }
+
 .job-list-item-header {
   padding: 30rpx 15rpx;
 }
-.job-list-item-header .flex{
+
+.job-list-item-header .flex {
   justify-content: space-between;
 }
+
 .job-list-item-header .flex .title {
   font-size: 30rpx;
   font-weight: bold;
 }
+
 .job-card-btn {
   display: flex;
-  justify-content: space-between
-  
+  justify-content: space-between;
 }
+
 .job-card-btn .btn {
   flex: 1;
   font-size: 24rpx;
   text-align: center;
-  padding:15rpx;
+  padding: 15rpx;
   border-left: 1px solid #f1f1f1;
   border-top: 1px solid #f1f1f1;
+}
+
+.sendJob {
+  position: fixed;
+  bottom: 5rem;
+  right: 10%;
+}
+.sendJob button {
+    border-radius: 100%;
+  width: 4rem;
+  height: 4rem;
 }

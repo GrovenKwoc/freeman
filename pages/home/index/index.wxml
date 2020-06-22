@@ -38,7 +38,7 @@
 	</view>
 	<view class="list-title">
 		<text>热门职位</text>
-		<text>筛选</text>
+		<text bindtap="selectBtn">筛选</text>
 	</view>
 
 

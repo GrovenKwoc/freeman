@@ -71,17 +71,17 @@ Page({
 
   },
   goEditHeader() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/about/editheader/edit',
     })
   },
   goEpx() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/about/epx/epx?rid=' + this.data.info.id,
     })
   },
   addDesc() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/about/desc/desc?id=' + this.data.info.id,
     })
   }

@@ -1,0 +1,72 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">发布职位</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+  <view class="cu-form-group">
+    <view class="title">职位名称</view>
+    <input placeholder="请输入职位名称" name="job_name"></input>
+  </view>
+
+ 	<view class="cu-form-group margin-top">
+		<view class="title">工作年限</view>
+		<picker bindchange="PickerChange" value="{{working_years}}" range="{{picker}}">
+			<view class="picker">
+				{{working_years?picker[working_years]:'1年以下'}}
+			</view>
+		</picker>
+	</view>
+
+   <view class="cu-form-group">
+    <view class="title">薪资范围</view>
+    <input placeholder="最低" name="min_price"></input>
+    <input placeholder="最高" name="max_price"></input>
+  </view>
+
+  <view class="cu-form-group margin-top">
+		<view class="title">学历</view>
+		<picker bindchange="PickerChangeEdu" value="{{edu}}" range="{{eduPicker}}">
+			<view class="picker">
+				{{edu?eduPicker[edu]:'初中以下'}}
+			</view>
+		</picker>
+	</view>
+
+ <view class="cu-form-group">
+    <view class="title">专业</view>
+    <input placeholder="请输入专业名称" name="pro"></input>
+  </view>
+
+   <view class="cu-form-group">
+    <view class="title">运营商</view>
+    <input placeholder="请输入运营商名称，多个以英文逗号分隔" name="operator"></input>
+  </view>
+
+ <view class="cu-form-group margin-top">
+		<view class="title">支付方式</view>
+		<picker bindchange="PickerChangePay" value="{{pay_type}}" range="{{payPicker}}">
+			<view class="picker">
+				{{pay_type?payPicker[pay_type]:'月付'}}
+			</view>
+		</picker>
+	</view>
+
+   <view class="cu-form-group">
+    <view class="title">工作城市</view>
+    <input placeholder="请输入工作城市，多个城市以英文逗号分隔" name="city"></input>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title">详细地址</view>
+    <input placeholder="请输入工作详细地址" name="address"></input>
+  </view>
+
+  <view class="cu-form-group align-start">
+    <view class="title">职位描述</view>
+    <textarea maxlength="-1" name="desc" bindinput="textareaBInput" placeholder="请输入职位详细描述"></textarea>
+  </view>
+
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue lg" form-type="submit">保存</button>
+  </view>
+</form>
