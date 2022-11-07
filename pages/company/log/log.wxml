@@ -1,9 +1,0 @@
-<view class='cu-custom'>
-	<view class="cu-bar bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-		<view class='content' style='top:{{StatusBar}}px;'>投递记录</view>
-
-	</view>
-  <view class="content">
-  
-  </view>
-</view>
